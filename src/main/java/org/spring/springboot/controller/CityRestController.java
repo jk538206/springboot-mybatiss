@@ -23,7 +23,7 @@ public class CityRestController {
     /***
      * @param cityName
      * @return
-     * 
+     * http://localhost:8080/api/city?cityName=%E5%8C%97%E4%BA%AC
      */
     @RequestMapping(value = "/api/city", method = RequestMethod.GET)
     public City findOneCity(@RequestParam(value = "cityName", required = true) String cityName) {

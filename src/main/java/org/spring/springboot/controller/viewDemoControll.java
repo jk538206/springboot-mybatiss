@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Controller
 public class viewDemoControll {
+	/***
+	 * @param model
+	 * @return
+	 * 
+	 */
     @RequestMapping("/page")
     public String indexPage(ModelMap model) {
         model.addAttribute("hello", "13212");

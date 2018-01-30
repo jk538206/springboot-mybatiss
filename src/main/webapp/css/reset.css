@@ -1,0 +1,118 @@
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {margin:0;padding:0;}
+body,button,input,select,textarea { font:12px/1.3 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif}
+h1,h2,h3,h4,h5,h6 {font-size:100%}
+address,cite,dfn,em,var {font-style:normal}
+code,kbd,pre,samp {font-family:courier new,courier,monospace}
+small {font-size:12px}
+ol,ul {list-style:none}
+a {text-decoration:none;
+    color: #fff;}
+a:hover {text-decoration:none}
+sup {vertical-align:text-top}
+sub {vertical-align:text-bottom}
+legend {color:#000}
+img {border:0}
+button,input,select,textarea {font-size:100%;}
+/*按钮水平对齐   vertical-align: middle;*/
+table {border-collapse:collapse;border-spacing:0}
+textarea{resize: none}
+
+
+/*清楚浮动*/
+.clear:after{  content: "";  height:0;  visibility: hidden;  display: block;  clear: both;  }
+
+/*头部*/
+body{
+    background: #f7f7ff;
+}
+.ifClass_nav,.hp_nav{
+    text-align: center;
+    min-height: 40px;
+    background-image: radial-gradient(500px at left top,#70bfea,#A1D1EA);
+    line-height: 40px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+
+/*底部*/
+.hp_footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+}
+.hp_footer img{
+    height: 20px;
+    padding-top: 5px;
+}
+.hp_footer>div{
+    width: 25%;
+    text-align: center;
+    float: left;
+    color: #666;
+}
+.hp_footer>div.hp_footer_active{
+    color: #70bfea;
+}
+
+
+
+/*点击输入需要输入的弹出模态*/
+.Modal_input{
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+    height: 100%;
+    background: #fff;
+    color: #666;
+}
+.Modal_input>p{
+    line-height: 50px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background: #70bfea;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.Modal_input>div{
+    width: 100%;
+    position: relative;
+}
+.Modal_input>div>input{
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 46px;
+    font-size: 1rem;
+}
+.Modal_input>div>button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 46px;
+    padding: 0 20px;
+    border: 0;
+    background: #ff9f00;
+    color: #fff;
+}
+
+
+
+
+

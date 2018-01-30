@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>receivingAddress收货地址管理</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="../comstyle/reset.css">
+    <style>
+        .rece_nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1rem;
+            background-image: radial-gradient(500px at left top,#70bfea,#A1D1EA);
+            border-bottom: 1px solid #ddd;
+            color: #fff;
+            font-weight: bold;
+        }
+        .rece_nav>img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 13px 20px;
+            width: 8px;
+        }
+        .rece_nav span{
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: center;
+            padding: 0 20px;
+            font-weight: 300;
+            font-size: 0.8rem;
+        }
+        /*内容区*/
+        .rece_cont{
+            margin: 40px 0 50px ;
+        }
+        .rece_contBox{
+            /*border: 1px solid red;*/
+            line-height: 30px;
+            font-size: 0.8rem;
+            padding: 10px;
+            color: #666;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .rece_contBox_left{
+            width: 90%;
+            float: left;
+            padding-left: 20px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        .rece_contBox_right{
+            width: 10%;
+            float: right;
+            text-align: center;
+            line-height: 60px;
+            border-left: 1px solid #eee;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            display: none;
+        }
+        .rece_contBox_right label{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .rece_contBox_rightImg{
+            width: 10%;
+            float: right;
+        }
+        .rece_contBox_rightImg>img{
+            width: 70%;
+            margin: 40% auto;
+            display: none;
+        }
+        .rece_contBox_rightImg>img.receImgActive{
+            display: block;
+        }
+
+        /*底部*/
+        .rece_foot{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            line-height: 50px;
+            background: #fa0002;
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .rece_foot_delete{
+            display: none;
+        }
+        .rece_foot span{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*删除的提示模态*/
+        .rece_delete_modal{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,.3);
+            display: none;
+        }
+        .rece_delete_modal>div{
+            width: 70%;
+            height: 100px;
+            background: #fff;
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            margin-top: -50px;
+            border-radius: 15px;
+            color: #444;
+        }
+        .rece_delete_modal_head{
+            text-align: center;
+            font-size: 1rem;
+            line-height: 60px;
+            border-bottom: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .rece_delete_modal_btn button{
+            display: block;
+            width: 50%;
+            float: left;
+            height: 40px;
+            background: transparent;
+            border: 0;
+            font-size: 0.9rem;
+            color: #1884f2;
+        }
+        .rece_delete_modal_btn button:nth-child(1){
+            border-right: 1px solid #ededed;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="rece_nav"><img src="img/zfx_03.png" id="rece_nav_return"/>选择收货地址<span class="rece_nav_admin">操作</span></div>
+    <div class="rece_cont">
+        <div class="rece_contBox clear">
+            <div class="rece_contBox_left">
+                <p>张三 13659874562</p>
+                <p>北京市朝阳区XXXX街道XXXX楼XXXX号</p>
+            </div>
+            <div class="rece_contBox_rightImg">
+                <img src="img/gouhs_03.png" class="receImgActive"/>
+            </div>
+            <div class="rece_contBox_right"><label><input type="checkbox"/></label></div>
+        </div>
+        <div class="rece_contBox clear">
+            <div class="rece_contBox_left">
+                <p>张三 13659874562</p>
+                <p>北京市朝阳区XXXX街道XXXX楼XXXX号</p>
+            </div>
+            <div class="rece_contBox_rightImg">
+                <img src="img/gouhs_03.png" class=""/>
+            </div>
+            <div class="rece_contBox_right"><label><input type="checkbox"/></label></div>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="rece_foot">
+        <span class="rece_foot_add">新增收货地址</span>
+        <span class="rece_foot_delete">删除</span>
+    </div>
+
+
+    <!--删除的提示模态-->
+    <div class="rece_delete_modal">
+        <div>
+            <p class="rece_delete_modal_head">确认要删除改地址吗？</p>
+            <div class="rece_delete_modal_btn">
+                <button class="rece_delete_modal_cancel">取消</button>
+                <button>确认</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<script src="../comstyle/jquery-1.11.3.js"></script>
+<script>
+    var rece={
+        init:function () {
+            this.returnClick();
+            this.adminClick();
+            //跳转
+            this.tzWindowHref();
+            //默认收货地址
+            this.rece_contBox();
+        },
+        returnClick:function () {
+            $('#rece_nav_return').click(function () {
+                window.location.href="../我的/mineSetting.html"
+            });
+        },
+        adminClick:function () {
+            //管理按钮
+            $('.rece_nav_admin').on('touchend',function () {
+                console.log(1111);
+                if($('.rece_contBox_right').is(':hidden')){
+                    $('.rece_contBox_right').show().find('input').attr('checked',false);
+                    $('.rece_contBox_rightImg').hide();
+                    $(this).text("取消");
+                    $('.rece_foot_add').hide();
+                    $('.rece_foot_delete').show();
+                }else {
+                    $('.rece_contBox_right').hide();
+                    $('.rece_contBox_rightImg').show();
+                    $(this).text("管理");
+                    $('.rece_foot_add').show();
+                    $('.rece_foot_delete').hide();
+                }
+            })
+        },
+        tzWindowHref:function () {
+            //点击新增的时候
+            $('.rece_foot_add').click(function () {
+                window.location.href="../收货新增/address.html"
+            });
+            //点击删除的时候
+            $('.rece_foot_delete').click(function () {
+                $('.rece_delete_modal').show();
+            })
+            //删除模态点击取消按钮的时候
+            $('.rece_delete_modal_cancel').click(function () {
+                $('.rece_delete_modal').hide();
+            })
+        },
+        //默认收货地址
+        rece_contBox:function () {
+            $('.rece_contBox').on('touchend',function () {
+                $(this).siblings().find('.receImgActive').removeClass('receImgActive');
+                $(this).find('.rece_contBox_rightImg').children('img').addClass('receImgActive');
+            })
+        }
+    }
+    rece.init();
+  
+    
+
+
+
+</script>
+</body>
+</html>

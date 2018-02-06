@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.CustomerDao">
+	<resultMap id="BaseResultMap" type="org.spring.springboot.domain.Customer">
+		<result column="user_id" property="userId" />
+		<result column="openid" property="openId" />
+		<result column="login_name" property="loginName" />
+		<result column="login_pwd" property="loginPwd" />
+		
+		<result column="nike_name" property="nikeName" />
+		<result column="area" property="area" />
+		<result column="age" property="age" />
+		<result column="phone" property="phone" />
+		<result column="email" property="email" />
+		<result column="profession" property="profession" />
+		
+		<result column="remarks" property="remarks" />
+		<result column="status" property="status" />
+		<result column="create_date" property="createDate" />
+		<result column="create_time" property="createTime" />
+		<result column="update_date" property="updateDate" />
+		<result column="update_time" property="updateDime" />
+		
+	</resultMap>
+
+	<parameterMap id="customer" type="org.spring.springboot.domain.Customer"/>
+
+	<sql id="Base_Column_List">
+		user_id, openid, login_name, login_pwd, nike_name, area, age, phone, email, 
+		profession, remarks, status ,create_date, create_time, update_date, update_time
+	</sql>
+
+	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from customer
+		where login_name = #{CustomerName}
+	</select>
+	
+	<insert id="saveCustomer" parameterType="customer">
+	INSERT INTO wx_constomer
+		(
+		<if test="openId != null and openId != ''">
+		openid,
+		</if>
+		<if test="loginName != null and loginName != ''">
+		login_name,
+		</if>
+		<if test="loginPwd != null and loginPwd != ''">
+		login_pwd,
+		</if>
+		<if test="nikeName != null and nikeName != ''">
+		nike_name,
+		</if>
+		<if test="area != null and area != ''">
+		area,
+		</if>
+		<if test="age != null and age != ''">
+		age,
+		</if>
+		<if test="phone != null and phone != ''">
+		phone,
+		</if>
+		<if test="email != null and email != ''">
+		email, 
+		</if>
+		<if test="profession != null and profession != ''">
+		profession,
+		</if>
+		<if test="remarks != null and remarks != ''">
+		remarks,
+		</if>
+		<if test="status != null and status != ''"> 
+		status ,
+		</if>
+		<if test="createDate != null and createDate != ''">
+		create_date, 
+		</if>
+		<if test="createTime != null and createTime != ''">
+		create_time, 
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+		update_date, 
+		</if>
+		<if test="updateTime != null and updateTime != ''">
+		update_time
+		</if>
+		)
+		VALUES
+		(
+		<if test="openId != null and openId != ''">
+		#{openId},
+		</if>
+		<if test="loginName != null and loginName != ''">
+		#{loginName},
+		</if>
+		<if test="loginPwd != null and loginPwd != ''">
+		#{loginPwd},
+		</if>
+		<if test="nikeName != null and nikeName != ''">
+		#{nikeName},
+		</if>
+		<if test="area != null and area != ''">
+		#{area},
+		</if>
+		<if test="age != null and age != ''">
+		#{age},
+		</if>
+		<if test="phone != null and phone != ''">
+		#{phone},
+		</if>
+		<if test="email != null and email != ''">
+		#{email},
+		</if>
+		<if test="profession != null and profession != ''">
+		#{profession},
+		</if>
+		<if test="remarks != null and remarks != ''">
+		#{remarks},
+		</if>
+		<if test="status != null and status != ''">
+		#{status},
+		</if>
+		
+		<if test="createDate != null and createDate != ''">
+		#{createDate},
+		</if>
+		<if test="createTime != null and createTime != ''">
+		#{createTime},
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+		#{updateDate},
+		</if>
+		<if test="updateTime != null and updateTime != ''">
+		#{updateTime},
+		</if>
+		
+		
+		)
+	</insert>
+
+</mapper>

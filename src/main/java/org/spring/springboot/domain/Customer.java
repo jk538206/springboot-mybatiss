@@ -21,7 +21,7 @@ package org.spring.springboot.domain;
 | status      | varchar(5)   | YES  |     | NULL    |       |
 | create_date | varchar(100) | YES  |     | NULL    |       |
 | create_time | varchar(100) | YES  |     | NULL    |       |
-| update_date | varchar(100) | YES  |     | NULL    |       |
+| update_date | varchar(100) | YES  |     | NULL    |       |    
 | update_time | varchar(100) | YES  |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
  */
@@ -44,10 +44,10 @@ public class Customer {
 	/**TODO*/
 	private String remarks;
 	private String status;
-	private String create_date;
-	private String create_time;
-	private String update_date;
-	private String update_time;
+	private String createDate;
+	private String createDime;
+	private String updateDate;
+	private String updateTime;
 	public String getUserId() {
 		return userId;
 	}
@@ -120,38 +120,40 @@ public class Customer {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getCreate_date() {
-		return create_date;
+	public String getCreateDate() {
+		return createDate;
 	}
-	public void setCreate_date(String create_date) {
-		this.create_date = create_date;
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
-	public String getCreate_time() {
-		return create_time;
+	public String getCreateDime() {
+		return createDime;
 	}
-	public void setCreate_time(String create_time) {
-		this.create_time = create_time;
+	public void setCreateDime(String createDime) {
+		this.createDime = createDime;
 	}
-	public String getUpdate_date() {
-		return update_date;
+	public String getUpdateDate() {
+		return updateDate;
 	}
-	public void setUpdate_date(String update_date) {
-		this.update_date = update_date;
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
 	}
-	public String getUpdate_time() {
-		return update_time;
+	public String getUpdateTime() {
+		return updateTime;
 	}
-	public void setUpdate_time(String update_time) {
-		this.update_time = update_time;
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
 	}
 	@Override
 	public String toString() {
 		return "Customer [userId=" + userId + ", openId=" + openId + ", loginName=" + loginName + ", loginPwd="
 				+ loginPwd + ", nikeName=" + nikeName + ", area=" + area + ", age=" + age + ", phone=" + phone
 				+ ", email=" + email + ", profession=" + profession + ", remarks=" + remarks + ", status=" + status
-				+ ", create_date=" + create_date + ", create_time=" + create_time + ", update_date=" + update_date
-				+ ", update_time=" + update_time + "]";
+				+ ", createDate=" + createDate + ", createDime=" + createDime + ", updateDate=" + updateDate
+				+ ", updateTime=" + updateTime + "]";
 	}
+	
+
 	
 	
 	

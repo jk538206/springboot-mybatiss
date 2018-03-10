@@ -5,7 +5,7 @@ import org.spring.springboot.hessian.bean.Info;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("gameAgentRemoteService")
+@Service("remoteService")
 public class RemoteServiceImpl implements RemoteService{
 	private static final Logger logger = Logger
 			.getLogger(RemoteServiceImpl.class);

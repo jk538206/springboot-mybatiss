@@ -30,7 +30,7 @@ public class HomeRestController {
 	 /***
      * @param cityName
      * @return 
-     * http://localhost:8080//hot/hotSales?itemType=SG
+     * http://localhost:8080/hot/hotSales?itemType=SG
      */
     @RequestMapping(value = "/hot/hotSales", method = RequestMethod.GET)
     public ResInfo hotSale(@RequestParam(value = "itemType", required = true) String itemType) {

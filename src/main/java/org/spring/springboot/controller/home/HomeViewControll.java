@@ -43,7 +43,7 @@ public class HomeViewControll {
         model.addAttribute("titilImg2", titilImg2);
         model.addAttribute("titilImg3", titilImg3);
         model.addAttribute("titilImg4", titilImg4);
-        logger.info("--HomeRestController--/hot/hotSales-end-");
+        logger.info("--HomeRestController--/home/toHomejsp-");
         return "home/homePage";
     }
     

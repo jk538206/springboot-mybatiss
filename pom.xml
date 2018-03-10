@@ -74,9 +74,6 @@
             <version>4.12</version>
         </dependency>
         
-        
-        
-        
 		<!-- log -->
 		 <dependency>
 	        <groupId>org.springframework.boot</groupId>
@@ -98,15 +95,40 @@
 		<version>1.2</version>
 	</dependency>
 	
-	<!-- 
 	<dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>jstl</artifactId>
 		<version>1.2</version>
 		<scope>provided</scope>
 	</dependency>
-	-->        
+	       
+	       
+	       
+	       <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+<dependency>
+    <groupId>org.codehaus.jackson</groupId>
+    <artifactId>jackson-mapper-asl</artifactId>
+    <version>1.9.13</version>
+</dependency>
+
+
+
+
+<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
+<dependency>
+    <groupId>org.codehaus.jackson</groupId>
+    <artifactId>jackson-core-asl</artifactId>
+    <version>1.9.13</version>
+</dependency>
+
+
+<dependency>    
+      <groupId>com.caucho</groupId>    
+       <artifactId>hessian</artifactId>    
+        <version>4.0.38</version>
+</dependency>
     </dependencies>
+    
     
     
     

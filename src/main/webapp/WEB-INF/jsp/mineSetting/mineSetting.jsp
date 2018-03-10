@@ -1,10 +1,20 @@
-<!--<!DOCTYPE html>-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <title>我的</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="stylesheet" href="../comstyle/reset.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <style>
         .mine_cont{
             margin: 10px auto 57px;
@@ -174,44 +184,44 @@
             <!--点击上传图片-->
             <div class="col-md-6">
                 <!--<input type="file" class="form-control" id="thumbnail" name="thumbnail">-->
-                <img src="img/wode_03.png">
+                <img src="assets/img-mine/wode_03.png">
             </div>
 
         </div>
         <div class="mine_cont_head_center">张三</div>
         <div class="mine_cont_head_right">
-            <img src="img/xgicon.png"/>
+            <img src="assets/img-mine/xgicon.png"/>
         </div>
     </div>
     <!--二层-->
     <div class="mine_cont_second">
-        <img src="img/dingdanicon.png" class="dingdanicon">我的订单
-        <img src="img/dakaiicon.png" class="dakaiicon"/>
+        <img src="assets/img-mine/dingdanicon.png" class="dingdanicon">我的订单
+        <img src="assets/img-mine/dakaiicon.png" class="dakaiicon"/>
     </div>
     <!--三层-->
     <div class="mine_cont_three clear">
         <div>
             <div>
-                <img src="img/dfk3x.png"/>
+                <img src="assets/img-mine/dfk3x.png"/>
                 <span>3</span>
             </div>
             <p>待付款</p>
         </div>
         <div>
             <div>
-                <img src="img/ffh.png">
+                <img src="assets/img-mine/ffh.png">
             </div>
             <p>待发货</p>
         </div>
         <div>
             <div>
-                <img src="img/dsh.png">
+                <img src="assets/img-mine/dsh.png">
             </div>
             <p>待收货</p>
         </div>
         <div>
             <div>
-                <img src="img/dpj.png">
+                <img src="assets/img-mine/dpj.png">
                 <span>3</span>
             </div>
             <p>待评价</p>
@@ -219,23 +229,23 @@
     </div>
     <!--四层，我的消息-->
     <div class="mine_cont_nextBox">
-        <img src="img/wdxx.png" class="nextBox_leftImg">我的消息
-        <img src="img/dakaiicon.png" class="nextBox_rightImg"/>
+        <img src="assets/img-mine/wdxx.png" class="nextBox_leftImg">我的消息
+        <img src="assets/img-mine/dakaiicon.png" class="nextBox_rightImg"/>
     </div>
     <!--，我的收货地址-->
     <div class="mine_cont_nextBox" id="MyDeliveryAddress">
-        <img src="img/shdz.png" class="nextBox_leftImg">我的收货地址
-        <img src="img/dakaiicon.png" class="nextBox_rightImg"/>
+        <img src="assets/img-mine/shdz.png" class="nextBox_leftImg">我的收货地址
+        <img src="assets/img-mine/dakaiicon.png" class="nextBox_rightImg"/>
     </div>
     <!--，退款售后-->
     <div class="mine_cont_nextBox">
-        <img src="img/tksh.png" class="nextBox_leftImg">退款售后
-        <img src="img/dakaiicon.png" class="nextBox_rightImg"/>
+        <img src="assets/img-mine/tksh.png" class="nextBox_leftImg">退款售后
+        <img src="assets/img-mine/dakaiicon.png" class="nextBox_rightImg"/>
     </div>
     <!--，常见问题-->
     <div class="mine_cont_nextBox">
-        <img src="img/cjwt.png" class="nextBox_leftImg">常见问题
-        <img src="img/dakaiicon.png" class="nextBox_rightImg"/>
+        <img src="assets/img-mine/cjwt.png" class="nextBox_leftImg">常见问题
+        <img src="assets/img-mine/dakaiicon.png" class="nextBox_rightImg"/>
     </div>
     <!--，我的优惠卷-->
     <!--<div class="mine_cont_nextBox">-->
@@ -244,39 +254,34 @@
     <!--</div>-->
     <!--，我的收藏-->
     <div class="mine_cont_nextBox">
-        <img src="img/shouc.png" class="nextBox_leftImg">我的收藏
-        <img src="img/dakaiicon.png" class="nextBox_rightImg"/>
+        <img src="assets/img-mine/shouc.png" class="nextBox_leftImg">我的收藏
+        <img src="assets/img-mine/dakaiicon.png" class="nextBox_rightImg"/>
     </div>
 </div>
-
-
-
-
-
 <div class="hp_footer">
     <div class="">
         <!--<img src="img/homeActive.png"/>-->
-        <img src="img/homeIcon.png"/>
+        <img src="assets/img-mine/homeIcon.png"/>
         <p>首页</p>
     </div>
     <div>
         <!--<img src="img/fenleiActive_03.png"/>-->
-        <img src="img/fenlei_03.png"/>
+        <img src="assets/img-mine/fenlei_03.png"/>
         <p>分类</p>
     </div>
     <div>
         <!--<img src="img/gwcActive_03.png"/>-->
-        <img src="img/gwc_03.png"/>
+        <img src="assets/img-mine/gwc_03.png"/>
         <p>购物车</p>
     </div>
     <div class="hp_footer_active">
-        <img src="img/wodeActive_03.png"/>
+        <img src="assets/img-mine/wodeActive_03.png"/>
         <!--<img src="img/wode_03.png"/>-->
         <p>我的</p>
     </div>
 </div>
 
-<script src="../comstyle/jquery-1.11.3.js"></script>
+<script src="../js/jquery-1.11.3.js"></script>
 <script>
 
     (function () {
@@ -293,29 +298,29 @@
             footDiv:function () {
                 $('.hp_footer').on('touchend','div',function () {
                     $(this).addClass('hp_footer_active').siblings('.hp_footer_active').removeClass('hp_footer_active');
-                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','img/homeIcon.png');
-                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','img/fenlei_03.png');
-                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','img/gwc_03.png');
-                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','img/wode_03.png');
+                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','assets/img-mine/homeIcon.png');
+                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','assets/img-mine/fenlei_03.png');
+                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','assets/img-mine/gwc_03.png');
+                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','assets/img-mine/wode_03.png');
                     //首页
                     if($(this).children('p').text()=="首页"){
-                        $(this).children('img').attr('src','img/homeActive.png');
+                        $(this).children('img').attr('src','assets/img-mine/homeActive.png');
 //                        $('.village').load("首页/homePage.html");
-                        window.location.href="../首页/homePage.html"
+                        window.location.href="/home/toHomejsp"
                     }
                     //分类
                     if($(this).children('p').text()=="分类"){
-                        $(this).children('img').attr('src','img/fenleiActive_03.png');
-                        window.location.href="../分类/classification.html"
+                        $(this).children('img').attr('src','assets/img-mine/fenleiActive_03.png');
+                        window.location.href="/home/toClassificationjsp"
                     }
                     //购物车
                     if($(this).children('p').text()=="购物车"){
-                        $(this).children('img').attr('src','img/gwcActive_03.png');
-                        window.location.href="../购物车/shoppingCart.html"
+                        $(this).children('img').attr('src','assets/img-mine/gwcActive_03.png');
+                        window.location.href="/home/toShoppingCartjsp"
                     }
                     //我的
                     if($(this).children('p').text()=="我的"){
-                        $(this).children('img').attr('src','img/wodeActive_03.png');
+                        $(this).children('img').attr('src','assets/img-mine/wodeActive_03.png');
 //                        window.location.href="../我的/mineSetting.html"
                     }
                 })

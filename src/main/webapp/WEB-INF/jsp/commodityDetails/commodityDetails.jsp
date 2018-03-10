@@ -1,6 +1,16 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>Title</title>
@@ -35,7 +45,7 @@
             width: 70%;
             margin: 0 auto;
         }
-        /*内容简介*/
+        /*åå®¹ç®ä»*/
         .spDetails_content{
             font-size: 0.8rem;
             color: #666;
@@ -59,7 +69,7 @@
             text-align: right;
             color: #bbb;
         }
-        /*第二层*/
+        /*ç¬¬äºå±*/
         .spDetails_c_second{
             line-height: 30px;
             box-sizing: border-box;
@@ -82,12 +92,12 @@
             line-height: 20px;
             text-align: center;
         }
-        /*第三层*/
+        /*ç¬¬ä¸å±*/
         .spDetails_c_third{
             text-indent:25px;
             line-height: 22px;
         }
-        /*第四层*/
+        /*ç¬¬åå±*/
         .spDetails_c_fourth{
             line-height: 40px;
             color: #aaa;
@@ -100,7 +110,7 @@
             background: url("img/bgdui_03.png") no-repeat 10px center;
             background-size: 13px;
         }
-        /*第五层*/
+        /*ç¬¬äºå±*/
         .spDetails_c_fifth{
             line-height: 40px;
             font-weight: bold;
@@ -120,7 +130,7 @@
             margin-bottom: 8px;
         }
 
-        /*热门推荐*/
+        /*ç­é¨æ¨è*/
         .spDetails_hotSpot{
             background: #fff;
             margin-bottom: 60px;
@@ -190,7 +200,7 @@
         }
 
 
-        /*底部*/
+        /*åºé¨*/
         .details_foot{
             position: fixed;
             bottom: 0;
@@ -239,7 +249,7 @@
             background: #fa0002;
         }
 
-        /*购买模态*/
+        /*è´­ä¹°æ¨¡æ*/
         .buy_modal{
             position: fixed;
             left: 0;
@@ -347,63 +357,63 @@
     </style>
 </head>
 <body>
-<div class="spDetails_nav"><img src="img/zfion_04.png" class="spDetails_nav_return"/>商品详情</div>
-<!--大图-->
+<div class="spDetails_nav"><img src="img/zfion_04.png" class="spDetails_nav_return"/>ååè¯¦æ</div>
+<!--å¤§å¾-->
 <div class="spDetails_pigImg">
     <img src="img/zhurou_03.png"/>
 </div>
-<!--简介-->
+<!--ç®ä»-->
 <div class="spDetails_content">
-    <!--第一层-->
+    <!--ç¬¬ä¸å±-->
     <p class="spDetails_c_first">
-        <span>猪肉精肉500g</span>
-        <span>销量：659</span>
+        <span>çªèç²¾è500g</span>
+        <span>ééï¼659</span>
     </p>
-    <!--第二层-->
+    <!--ç¬¬äºå±-->
     <p class="spDetails_c_second">
-        <span>￥<span class="presentPrice">16.66</span></span>
-        <del>￥19.66</del>
-        <span>特价</span>
+        <span>ï¿¥<span class="presentPrice">16.66</span></span>
+        <del>ï¿¥19.66</del>
+        <span>ç¹ä»·</span>
     </p>
-    <!--第三层-->
-    <p class="spDetails_c_third">看见好看还是短发的空间发挥，的方式地方，水电费，电风扇，分，多少，范德，对发生的发生的，地方，稍等，放松的方法</p>
-   <!--第四层-->
+    <!--ç¬¬ä¸å±-->
+    <p class="spDetails_c_third">çè§å¥½çè¿æ¯ç­åçç©ºé´åæ¥ï¼çæ¹å¼å°æ¹ï¼æ°´çµè´¹ï¼çµé£æï¼åï¼å¤å°ï¼èå¾·ï¼å¯¹åççåççï¼å°æ¹ï¼ç¨ç­ï¼æ¾æ¾çæ¹æ³</p>
+   <!--ç¬¬åå±-->
     <p class="spDetails_c_fourth clear">
-        <span>一个小时发货</span>
-        <span>送货到家</span>
+        <span>ä¸ä¸ªå°æ¶åè´§</span>
+        <span>éè´§å°å®¶</span>
     </p>
-    <!--规格参数-->
-    <!--第五层-->
-    <p class="spDetails_c_fifth">规格参数</p>
-    <!--第六层-->
+    <!--è§æ ¼åæ°-->
+    <!--ç¬¬äºå±-->
+    <p class="spDetails_c_fifth">è§æ ¼åæ°</p>
+    <!--ç¬¬å­å±-->
     <p class="spDetails_c_sixth">
-        <span>产地：本地</span>
-        <span>包装：散装</span>
+        <span>äº§å°ï¼æ¬å°</span>
+        <span>åè£ï¼æ£è£</span>
     </p>
-    <!--第七层-->
+    <!--ç¬¬ä¸å±-->
     <p class="spDetails_c_seventh">
-        <span>净含量：500g</span>
-        <span>储藏方式：冷藏</span>
+        <span>åå«éï¼500g</span>
+        <span>å¨èæ¹å¼ï¼å·è</span>
     </p>
 </div>
 <div class="spDetails_hotSpot">
-    <p class="spDetails_hotSpot_head">热门推荐<span>更多</span></p>
+    <p class="spDetails_hotSpot_head">ç­é¨æ¨è<span>æ´å¤</span></p>
     <div>
         <div class="spDetails_hotSpot_cont clear">
             <div>
                 <img src="img/zhurou_03.png"/>
-                <p class="spDetails_hotSpot_text">新鲜猪肉精肉猪蹄肉猪肉精肉猪蹄肉</p>
+                <p class="spDetails_hotSpot_text">æ°é²çªèç²¾èçªè¹èçªèç²¾èçªè¹è</p>
                 <p class="spDetails_hotSpot_money">
-                    <span>￥15.55</span>
-                    <span>销量：269</span>
+                    <span>ï¿¥15.55</span>
+                    <span>ééï¼269</span>
                 </p>
             </div>
             <div>
                 <img src="img/zhurou_03.png"/>
-                <p class="spDetails_hotSpot_text">新鲜猪肉精肉肉</p>
+                <p class="spDetails_hotSpot_text">æ°é²çªèç²¾èè</p>
                 <p class="spDetails_hotSpot_money">
-                    <span>￥15.55</span>
-                    <span>销量：269</span>
+                    <span>ï¿¥15.55</span>
+                    <span>ééï¼269</span>
                 </p>
             </div>
         </div>
@@ -411,32 +421,32 @@
 </div>
 
 
-<!--footer按钮-->
+<!--footeræé®-->
 <div class="details_foot">
-    <div class="details_foot_homePage">回到首页</div>
+    <div class="details_foot_homePage">åå°é¦é¡µ</div>
     <div class="details_foot_collect">
         <img src="img/shouc_07.png"/>
-        <p>收藏</p>
+        <p>æ¶è</p>
     </div>
-    <!--<div>客服</div>-->
-    <div class="details_foot_gwc">加入购物车</div>
-    <div class="details_foot_gm">购买</div>
+    <!--<div>å®¢æ</div>-->
+    <div class="details_foot_gwc">å å¥è´­ç©è½¦</div>
+    <div class="details_foot_gm">è´­ä¹°</div>
 </div>
 
-<!--购买模态-->
+<!--è´­ä¹°æ¨¡æ-->
 <div class="buy_modal">
     <div class="buy_modal_box">
         <div class="buy_modal_boxTop clear">
-            <div>购买数量</div>
+            <div>è´­ä¹°æ°é</div>
             <div><span class="buy_toReduce bgcolor_eee">-</span><input type="number"  value="1" class="buy_input"/><span class="buy_add">+</span></div>
         </div>
 
         <div class="buy_modal_boxCenter clear">
-            <div>XXXX猪肉猪肉</div>
-            <div>价格：<span class="pricesShown">0</span></div>
+            <div>XXXXçªèçªè</div>
+            <div>ä»·æ ¼ï¼<span class="pricesShown">0</span></div>
         </div>
 
-        <div class="buy_modal_boxBtn">确定</div>
+        <div class="buy_modal_boxBtn">ç¡®å®</div>
     </div>
 </div>
 
@@ -450,17 +460,17 @@
                 this.commodModal();
                 this.commdGWC();
             },
-            //跳转页面
+            //è·³è½¬é¡µé¢
             jumpPage: function () {
                 $('.spDetails_nav_return').on('touchend',function () {
-                    window.location.href = "../分类/classification.html";
+                    window.location.href = "../åç±»/classification.html";
                 })
-                //跳到首页
+                //è·³å°é¦é¡µ
                 $('.details_foot_homePage').on('touchend',function () {
-                    window.location.href="../首页/homePage.html";
+                    window.location.href="../é¦é¡µ/homePage.html";
                 })
             },
-            //模态里面的操作
+            //æ¨¡æéé¢çæä½
             commodModal: function () {
                 function bgColor(value) {
                     if(value==1){
@@ -475,7 +485,7 @@
                     }
                 }
 
-                //减少按钮
+                //åå°æé®
                 $('.buy_toReduce').on('touchend', function () {
                     var value = parseInt($(this).siblings('.buy_input').val());
                     value = value - 1;
@@ -486,7 +496,7 @@
                     bgColor(value);
                     pice(value)
                 })
-                //增加按钮
+                //å¢å æé®
                 $('.buy_add').on('touchend', function () {
                     var value = parseInt($(this).siblings('.buy_input').val());
                     value = value + 1;
@@ -497,18 +507,18 @@
                     bgColor(value);
                     pice(value)
                 })
-                //点击除了内容以外的地方关闭模态
+                //ç¹å»é¤äºåå®¹ä»¥å¤çå°æ¹å³é­æ¨¡æ
                 $(document).bind("click", function (e) {
                     var target = $(e.target);
                     if (target.closest(".buy_modal_box").length == 0 && target.closest(".details_foot_gm").length == 0) {
                         $('.buy_modal').fadeOut(200);
                     }
                 });
-                //点击购买按钮弹出模态
+                //ç¹å»è´­ä¹°æé®å¼¹åºæ¨¡æ
                 $('.details_foot_gm').on('touchend', function () {
                     $('.buy_modal').fadeIn(200);
                 })
-                //监听input内容值改变的事件
+                //çå¬inputåå®¹å¼æ¹åçäºä»¶
                 $('.buy_input').on('input propertychange', function () {
                     var value = parseInt($(this).val())
 
@@ -524,7 +534,7 @@
                     bgColor(value);
                     pice(value);
                 })
-                //显示的价格
+                //æ¾ç¤ºçä»·æ ¼
                 function pice(value) {
                     var pic=parseFloat($('.presentPrice').text());
                     var pice=value*pic;
@@ -533,10 +543,10 @@
                 }
                 pice(1);
             },
-            //购物车
+            //è´­ç©è½¦
             commdGWC:function () {
                 $('.details_foot_gwc').on('touchend',function () {
-                    var html="<span style='color: #fa766c;position: absolute;width: 100%;left: 0;top: 0;text-align: center;' class='gwc_text'>添加成功</span>";
+                    var html="<span style='color: #fa766c;position: absolute;width: 100%;left: 0;top: 0;text-align: center;' class='gwc_text'>æ·»å æå</span>";
                     $(this).append(html);
                     $('.gwc_text').animate({
                         top:'-60px',

@@ -1,9 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <title>新增收货地址</title>
+    <title>æ°å¢æ¶è´§å°å</title>
     <link rel="stylesheet" href="../comstyle/reset.css">
     <link rel="stylesheet" href="city-menu.css">
     <style>
@@ -27,7 +37,7 @@
             padding: 13px 20px;
             width: 8px;
         }
-        /*内容区*/
+        /*åå®¹åº*/
         .addRess_cont{
             margin-top: 42px;
             font-size: 0.9rem;
@@ -56,14 +66,14 @@
     </style>
 </head>
 <body>
-<div class="addRess_nav"><img src="img/zfx_03.png" id="addRess_nav_return"/>新增收货地址</div>
+<div class="addRess_nav"><img src="img/zfx_03.png" id="addRess_nav_return"/>æ°å¢æ¶è´§å°å</div>
 <div class="addRess_cont">
-    <div><input type="text" placeholder="收货人姓名"/></div>
-    <div><input type="text" placeholder="别名（小名）"/></div>
-    <div><input type="text" placeholder="手机号码"/></div>
-    <div><input id="address1" class="pla" type="text" readonly="readonly" placeholder="请选择地区"/></div>
-    <!--<div class="addRess_cont_street">街道</div>-->
-    <div><input type="text" placeholder="详细地址"/></div>
+    <div><input type="text" placeholder="æ¶è´§äººå§å"/></div>
+    <div><input type="text" placeholder="å«åï¼å°åï¼"/></div>
+    <div><input type="text" placeholder="ææºå·ç "/></div>
+    <div><input id="address1" class="pla" type="text" readonly="readonly" placeholder="è¯·éæ©å°åº"/></div>
+    <!--<div class="addRess_cont_street">è¡é</div>-->
+    <div><input type="text" placeholder="è¯¦ç»å°å"/></div>
 </div>
 
 
@@ -79,20 +89,20 @@
         },
         addRess_nav_return:function () {
             $('#addRess_nav_return').click(function () {
-                window.location.href="../收货地址/receivingAddress.html";
+                window.location.href="../æ¶è´§å°å/receivingAddress.html";
             })
         },
         dizhi:function () {
             var addrFun = new LArea();
             addrFun.init({
-                'trigger':'#address1',  //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
-                'valueTo':'#addressVal1',  //选择完毕后id属性输出到该位置
+                'trigger':'#address1',  //è§¦åéæ©æ§ä»¶çææ¬æ¡ï¼åæ¶éæ©å®æ¯ånameå±æ§è¾åºå°è¯¥ä½ç½®
+                'valueTo':'#addressVal1',  //éæ©å®æ¯åidå±æ§è¾åºå°è¯¥ä½ç½®
                 'keys':{
                     id:'id',
                     name:'name'
-                },  //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
-                'type':1,   //数据源类型
-                'data':LAreaData  //数据源
+                },  //ç»å®æ°æ®æºç¸å³å­æ®µ idå¯¹åºvalueToçvalueå±æ§è¾åº nameå¯¹åºtriggerçvalueå±æ§è¾åº
+                'type':1,   //æ°æ®æºç±»å
+                'data':LAreaData  //æ°æ®æº
             });
         }
     }

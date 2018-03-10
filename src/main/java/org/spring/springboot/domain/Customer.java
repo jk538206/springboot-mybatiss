@@ -41,13 +41,21 @@ public class Customer {
 	private String email;
 	/**职业*/
 	private String profession;
-	/**TODO*/
+	private String regtime;
 	private String remarks;
 	private String status;
 	private String createDate;
-	private String createDime;
+	private String createTime;
 	private String updateDate;
 	private String updateTime;
+
+	
+	public String getRegtime() {
+		return regtime;
+	}
+	public void setRegtime(String regtime) {
+		this.regtime = regtime;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -126,11 +134,11 @@ public class Customer {
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
-	public String getCreateDime() {
-		return createDime;
+	public String getCreateTime() {
+		return createTime;
 	}
-	public void setCreateDime(String createDime) {
-		this.createDime = createDime;
+	public void setCreateTime(String createDime) {
+		this.createTime = createDime;
 	}
 	public String getUpdateDate() {
 		return updateDate;
@@ -148,12 +156,12 @@ public class Customer {
 	public String toString() {
 		return "Customer [userId=" + userId + ", openId=" + openId + ", loginName=" + loginName + ", loginPwd="
 				+ loginPwd + ", nikeName=" + nikeName + ", area=" + area + ", age=" + age + ", phone=" + phone
-				+ ", email=" + email + ", profession=" + profession + ", remarks=" + remarks + ", status=" + status
-				+ ", createDate=" + createDate + ", createDime=" + createDime + ", updateDate=" + updateDate
-				+ ", updateTime=" + updateTime + "]";
+				+ ", email=" + email + ", profession=" + profession + ", regtime=" + regtime + ", remarks=" + remarks
+				+ ", status=" + status + ", createDate=" + createDate + ", createTime=" + createTime + ", updateDate="
+				+ updateDate + ", updateTime=" + updateTime + "]";
 	}
 	
-
+	
 	
 	
 	

@@ -22,7 +22,7 @@ public class CityRestController {
 
     /***
      * @param cityName
-     * @return
+     * @return 
      * http://localhost:8080/api/city?cityName=北京
      */
     @RequestMapping(value = "/api/city", method = RequestMethod.GET)

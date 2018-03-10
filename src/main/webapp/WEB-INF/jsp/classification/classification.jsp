@@ -1,10 +1,20 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>分类</title>
-    <link rel="stylesheet" href="../comstyle/reset.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <style>
 
         .ifClass_nav img{
@@ -113,61 +123,61 @@
         <ul class="ifClass_cont_ul">
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
             <li>
                 <div>
-                    <img src="img/zhurou_03.png"/>
+                    <img src="assets/img-class/zhurou_03.png"/>
                     <p>猪肉介绍猪肉介绍</p>
                 </div>
             </li>
@@ -177,29 +187,29 @@
     <div class="hp_footer">
         <div class="">
             <!--<img src="img/homeActive.png"/>-->
-            <img src="img/homeIcon.png"/>
+            <img src="assets/img-class/homeIcon.png"/>
             <p>首页</p>
         </div>
         <div class="hp_footer_active">
-            <img src="img/fenleiActive_03.png"/>
+            <img src="assets/img-class/fenleiActive_03.png"/>
             <!--<img src="img/fenlei_03.png"/>-->
             <p>分类</p>
         </div>
         <div>
             <!--<img src="img/gwcActive_03.png"/>-->
-            <img src="img/gwc_03.png"/>
+            <img src="assets/img-class/gwc_03.png"/>
             <p>购物车</p>
         </div>
         <div>
             <!--<img src="img/wodeActive_03.png"/>-->
-            <img src="img/wode_03.png"/>
+            <img src="assets/img-class/wode_03.png"/>
             <p>我的</p>
         </div>
     </div>
 
     <!--<embed class="hp_footer" src="../footer/footer.html"></embed>-->
 
-<script src="../comstyle/jquery-1.11.3.js"></script>
+<script src="../js/jquery-1.11.3.js"></script>
 <script>
     //右上角的按钮
     $('.ifClass_nav_img').on('touchend',function () {
@@ -231,31 +241,31 @@
             footDiv:function () {
                 $('.hp_footer').on('touchend','div',function () {
                     $(this).addClass('hp_footer_active').siblings('.hp_footer_active').removeClass('hp_footer_active');
-                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','img/homeIcon.png');
-                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','img/fenlei_03.png');
-                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','img/gwc_03.png');
-                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','img/wode_03.png');
+                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','assets/img-class/homeIcon.png');
+                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','assets/img-class/fenlei_03.png');
+                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','assets/img-class/gwc_03.png');
+                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','assets/img-class/wode_03.png');
                     //首页
                     if($(this).children('p').text()=="首页"){
-                        $(this).children('img').attr('src','img/homeActive.png');
+                        $(this).children('img').attr('src','assets/img-class/homeActive.png');
 //                        $('.village').load("首页/homePage.html");
-                        window.location.href="../首页/homePage.html"
+                        window.location.href="/home/toHomejsp"
                     }
                     //分类
                     if($(this).children('p').text()=="分类"){
-                        $(this).children('img').attr('src','img/fenleiActive_03.png');
+                        $(this).children('img').attr('src','assets/img-class/fenleiActive_03.png');
 //                        $('.village').load("分类/classification.html")
 //                        window.location.href="../分类/classification.html"
                     }
                     //购物车
                     if($(this).children('p').text()=="购物车"){
-                        $(this).children('img').attr('src','img/gwcActive_03.png');
-                        window.location.href="../购物车/shoppingCart.html"
+                        $(this).children('img').attr('src','assets/img-class/gwcActive_03.png');
+                        window.location.href="/home/toShoppingCartjsp"
                     }
                     //我的
                     if($(this).children('p').text()=="我的"){
-                        $(this).children('img').attr('src','img/wodeActive_03.png');
-                        window.location.href="../我的/mineSetting.html"
+                        $(this).children('img').attr('src','assets/img-class/wodeActive_03.png');
+                        window.location.href="/home/toMineSettingjsp"
                     }
                 })
                 //点击商品进入商品详情
@@ -280,4 +290,5 @@
 
 </script>
 </body>
+</html>
 </html>

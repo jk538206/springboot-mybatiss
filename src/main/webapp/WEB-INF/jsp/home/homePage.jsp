@@ -1,11 +1,21 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="<%=basePath%>">
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>Title</title>
-    <link rel="stylesheet" href="../comstyle/reset.css">
+    <link rel="stylesheet" href="css/reset.css">
     <style>
         *{
             font-size: 0.8rem;
@@ -14,7 +24,7 @@
             background: #f7f7ff;
         }
 
-        .hp_content{
+        .hp_content{ 
             width: 100%;
             margin: 40px auto 45px;
         }
@@ -185,11 +195,11 @@
         <!--单图轮播-->
         <div class="lb_Box dLunbo">
             <ul class="dLunbo_cont">
-                <li style="background-color: red"><img src="img/lunbo_03.jpg"></li>
-                <li style="background-color: #00ff00"><img src="img/lunbo_03.jpg"></li>
-                <li style="background-color: #4f8ab4"><img src="img/lunbo_03.jpg"></li>
-                <li style="background-color: yellow"><img src="img/lunbo_03.jpg"></li>
-                <li style="background-color: #678"><img src="img/lunbo_03.jpg"></li>
+                <li style="background-color: red"><img src="${titilImg1}"></li>
+                <li style="background-color: #00ff00"><img src="${titilImg2}"></li>
+                <li style="background-color: #4f8ab4"><img src="${titilImg3}"></li>
+                <li style="background-color: yellow"><img src="${titilImg4}"></li>
+                <li style="background-color: #678"><img src="${titilImg1}"></li>
             </ul>
             <!--图下面的提示点-->
             <div class="dLunbo_cont_icon"></div>
@@ -201,27 +211,27 @@
         <div class="classification clear">
             <div>
                 <div class="classification_imgBox">
-                    <img src="img/a_03.jpg">
+                    <img src="assets/img-home/a_03.jpg">
                 </div>
                 <p>鲜肉</p>
             </div>
             <div>
                 <div class="classification_imgBox">
-                    <img src="img/a_03.jpg">
+                    <img src="assets/img-home/111_03.png">
                 </div>
-                <p>鲜肉</p>
+                <p>蔬菜</p>
             </div>
             <div>
                 <div class="classification_imgBox">
-                    <img src="img/a_03.jpg">
+                    <img src="assets/img-home/222_06.png">
                 </div>
-                <p>鲜肉</p>
+                <p>水果</p>
             </div>
             <div>
                 <div class="classification_imgBox">
-                    <img src="img/a_03.jpg">
+                    <img src="assets/img-home/333_03.png">
                 </div>
-                <p>鲜肉</p>
+                <p>蛋类</p>
             </div>
         </div>
         <!--新货热卖-->
@@ -233,7 +243,7 @@
             <div class="new_cargo_img">
                 <ul class="new_cargo_img_ul">
                     <li class="new_cargo_img_firsBox clear">
-                        <img src="img/img_07.jpg"/>
+                        <img src="assets/img-home/img_07.jpg"/>
                         <p>新鲜西红柿</p>
                         <div>
                             <div>￥20.00</div>
@@ -241,7 +251,7 @@
                         </div>
                     </li>
                     <li class="new_cargo_img_firsBox clear">
-                        <img src="img/img_07.jpg"/>
+                        <img src="assets/img-home/img_07.jpg"/>
                         <p>新鲜西红柿</p>
                         <div>
                             <div>￥20.00</div>
@@ -249,7 +259,7 @@
                         </div>
                     </li>
                     <li class="new_cargo_img_firsBox clear">
-                        <img src="img/img_07.jpg"/>
+                        <img src="assets/img-home/img_07.jpg"/>
                         <p>新鲜西红柿</p>
                         <div>
                             <div>￥20.00</div>
@@ -257,7 +267,7 @@
                         </div>
                     </li>
                     <li class="new_cargo_img_firsBox clear">
-                        <img src="img/img_07.jpg"/>
+                        <img src="assets/img-home/img_07.jpg"/>
                         <p>新鲜西红柿</p>
                         <div>
                             <div>￥20.00</div>
@@ -265,7 +275,7 @@
                         </div>
                     </li>
                     <li class="new_cargo_img_firsBox clear">
-                        <img src="img/img_07.jpg"/>
+                        <img src="assets/img-home/img_07.jpg"/>
                         <p>新鲜西红柿</p>
                         <div>
                             <div>￥20.00</div>
@@ -280,23 +290,23 @@
 
 <div class="hp_footer">
     <div class="hp_footer_active">
-        <img src="img/homeActive.png"/>
+        <img src="assets/img-home/homeActive.png"/>
         <!--<img src="img/homeIcon.png"/>-->
         <p>首页</p>
     </div>
     <div>
         <!--<img src="img/fenleiActive_03.png"/>-->
-        <img src="img/fenlei_03.png"/>
+        <img src="assets/img-home/fenlei_03.png"/>
         <p>分类</p>
     </div>
     <div>
         <!--<img src="img/gwcActive_03.png"/>-->
-        <img src="img/gwc_03.png"/>
+        <img src="assets/img-home/gwc_03.png"/>
         <p>购物车</p>
     </div>
     <div>
         <!--<img src="img/wodeActive_03.png"/>-->
-        <img src="img/wode_03.png"/>
+        <img src="assets/img-home/wode_03.png"/>
         <p>我的</p>
     </div>
 </div>
@@ -304,7 +314,7 @@
 
 <!--<embed class="hp_footer" src="../footer/footer.html"></embed>-->
 
-<script src="../comstyle/jquery-1.11.3.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
 <script>
     (function () {
         var homePage={
@@ -491,30 +501,30 @@
             footDiv:function () {
                 $('.hp_footer').on('touchend','div',function () {
                     $(this).addClass('hp_footer_active').siblings('.hp_footer_active').removeClass('hp_footer_active');
-                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','img/homeIcon.png');
-                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','img/fenlei_03.png');
-                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','img/gwc_03.png');
-                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','img/wode_03.png');
+                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','assets/img-home/homeIcon.png');
+                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','assets/img-home/fenlei_03.png');
+                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','assets/img-home/gwc_03.png');
+                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','assets/img-home/wode_03.png');
                     //首页
                     if($(this).children('p').text()=="首页"){
-                        $(this).children('img').attr('src','img/homeActive.png');
+                        $(this).children('img').attr('src','assets/img-home/homeActive.png');
 //                        $('.village').load("首页/homePage.html");
 //                        window.location.href="../首页/homePage.html"
                     }
                     //分类
                     if($(this).children('p').text()=="分类"){
-                        $(this).children('img').attr('src','img/fenleiActive_03.png');
-                        window.location.href="../分类/classification.html"
+                        $(this).children('img').attr('src','assets/img-home/fenleiActive_03.png');
+                        window.location.href="/home/toClassificationjsp"
                     }
                     //购物车
                     if($(this).children('p').text()=="购物车"){
-                        $(this).children('img').attr('src','img/gwcActive_03.png');
-                        window.location.href="../购物车/shoppingCart.html"
+                        $(this).children('img').attr('src','assets/img-home/gwcActive_03.png');
+                        window.location.href="/home/toShoppingCartjsp"
                     }
                     //我的
                     if($(this).children('p').text()=="我的"){
-                        $(this).children('img').attr('src','img/wodeActive_03.png');
-                        window.location.href="../我的/mineSetting.html"
+                        $(this).children('img').attr('src','assets/img-home/wodeActive_03.png');
+                        window.location.href="/home/toMineSettingjsp"
                     }
                 })
 
@@ -526,8 +536,6 @@
 
         }
         homePage.init();
-
-
     })(jQuery)
 
 </script>

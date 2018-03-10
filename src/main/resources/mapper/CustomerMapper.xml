@@ -6,42 +6,106 @@
 		<result column="openid" property="openId" />
 		<result column="login_name" property="loginName" />
 		<result column="login_pwd" property="loginPwd" />
-		
 		<result column="nike_name" property="nikeName" />
 		<result column="area" property="area" />
 		<result column="age" property="age" />
 		<result column="phone" property="phone" />
 		<result column="email" property="email" />
 		<result column="profession" property="profession" />
-		
 		<result column="remarks" property="remarks" />
 		<result column="status" property="status" />
 		<result column="create_date" property="createDate" />
 		<result column="create_time" property="createTime" />
 		<result column="update_date" property="updateDate" />
 		<result column="update_time" property="updateDime" />
-		
 	</resultMap>
 
 	<parameterMap id="customer" type="org.spring.springboot.domain.Customer"/>
 
 	<sql id="Base_Column_List">
-		user_id, openid, login_name, login_pwd, nike_name, area, age, phone, email, 
+		user_id, open_id, login_name, login_pwd, nike_name, area, age, phone, email, 
 		profession, remarks, status ,create_date, create_time, update_date, update_time
 	</sql>
 
-	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<delete id="deleteByPhone" parameterType="customer">
+		DELETE FROM wx_constomer WHERE PHONE = #{phone}
+	</delete>
+
+	<update id="updateByPhone" parameterType="customer" >
+	UPDATE wx_constomer 
+	<trim prefix="set" suffixOverrides=",">
+		 <if test="userId != null" >
+		    user_id = #{userId},
+		    </if>
+		  <if test="openId != null" >
+		    open_id = #{openId},
+		  </if>
+		  <if test="loginName != null" >
+		    login_name = #{loginName},
+		  </if>
+		  <if test="loginPwd != null" >
+		    login_pwd = #{loginPwd},
+		  </if>
+		  <if test="nikeName != null" >
+		    nike_name = #{nikeName},
+		  </if>
+		  <if test="area != null" >
+		    area = #{area},
+		  </if>
+		  <if test="age != null" >
+		    age = #{age},
+		  </if>
+		  <if test="email != null" >
+		    email = #{email},
+		  </if>
+		  <if test="profession != null" >
+		    profession = #{profession},
+		  </if>
+		  <if test="regtime != null" >
+		    regtime = #{regtime},
+		  </if>
+		  <if test="remarks != null" >
+		    remarks = #{remarks},
+		  </if>
+		  <if test="status != null" >
+		    status = #{status},
+		  </if>
+		  <if test="createDate != null" >
+		    create_date = #{createDate},
+		  </if>
+		  <if test="createTime != null" >
+		    create_time = #{createTime},
+		  </if>
+		  <if test="updateDate != null" >
+		    update_date = #{updateDate},
+		  </if>
+		  <if test="updateTime != null" >
+		    update_time = #{updateTime}
+		  </if>
+	</trim>		
+	WHERE phone = #{phone}
+	</update>
+	
+	<select id="findByNikeName" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
-		from customer
-		where login_name = #{CustomerName}
+		from wx_constomer
+		where nike_name = #{nikeName}
+	</select>
+	
+	<select id="findByUserId" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from wx_constomer
+		where user-id = #{userId}
 	</select>
 	
 	<insert id="saveCustomer" parameterType="customer">
 	INSERT INTO wx_constomer
-		(
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+		user_id,
 		<if test="openId != null and openId != ''">
-		openid,
+		open_id,
 		</if>
 		<if test="loginName != null and loginName != ''">
 		login_name,
@@ -85,9 +149,9 @@
 		<if test="updateTime != null and updateTime != ''">
 		update_time
 		</if>
-		)
-		VALUES
-		(
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+		#{userId},
 		<if test="openId != null and openId != ''">
 		#{openId},
 		</if>
@@ -121,7 +185,6 @@
 		<if test="status != null and status != ''">
 		#{status},
 		</if>
-		
 		<if test="createDate != null and createDate != ''">
 		#{createDate},
 		</if>
@@ -134,9 +197,7 @@
 		<if test="updateTime != null and updateTime != ''">
 		#{updateTime},
 		</if>
-		
-		
-		)
+		</trim>
 	</insert>
 
 </mapper>

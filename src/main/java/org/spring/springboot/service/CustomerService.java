@@ -1,10 +1,22 @@
 package org.spring.springboot.service;
 
+import java.util.List;
+
+import org.spring.springboot.Vo.ResInfo;
 import org.spring.springboot.domain.Customer;
+
 
 public interface CustomerService {
 	
 
-	Customer addCustomer(Customer customer);
+	ResInfo addCustomer(Customer customer);
+	
+	ResInfo findByNikeNameGetResInfo(Customer customer);
+	
+	Customer findByNikeNameGetCustomer(Customer customer);
+	
+	ResInfo updateByPhone(Customer customer);
+	
+	
 
 }

@@ -1,9 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <title>购物车</title>
-    <link rel="stylesheet" href="../comstyle/reset.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <style>
         /*内容区*/
@@ -216,8 +226,8 @@
         <!--<div class="gwc_box_cont">-->
         <div class="sil_btn_container">
             <ul>
-                <li class="gwc_box_check"><img src="img/gouxz_03.png"/></li>
-                <li class="gwc_box_left"><img src="img/zhurou_03.png"/></li>
+                <li class="gwc_box_check"><img src="assets/img-shop/gouxz_03.png"/></li>
+                <li class="gwc_box_left"><img src="assets/img-shop/zhurou_03.png"/></li>
                 <li class="gwc_box_center">
                     <p>老王牌猪肉老王牌猪肉老王牌猪肉</p>
                     <p>包邮，优惠</p>
@@ -238,8 +248,8 @@
         <!--<div class="gwc_box_cont">-->
         <div class="sil_btn_container">
             <ul>
-                <li class="gwc_box_check"><img src="img/gouxz_03.png"/></li>
-                <li class="gwc_box_left"><img src="img/zhurou_03.png"/></li>
+                <li class="gwc_box_check"><img src="assets/img-shop/gouxz_03.png"/></li>
+                <li class="gwc_box_left"><img src="assets/img-shop/zhurou_03.png"/></li>
                 <li class="gwc_box_center">
                     <p>老王牌猪肉老王牌猪肉老王牌猪肉</p>
                     <p>包邮，优惠</p>
@@ -265,7 +275,7 @@
     <div class="shopping_footerBox_center">实付款:<span class="RealPayment">总价数量</span></div>
 
     <div class="shopping_footerBox_left">
-        <img src="img/gouxz_03.png"/>
+        <img src="assets/img-shop/gouxz_03.png"/>
         <!--<img src="img/gouhs_03.png"/>-->
         全选
     </div>
@@ -278,22 +288,22 @@
 <div class="hp_footer">
     <div class="">
         <!--<img src="img/homeActive.png"/>-->
-        <img src="img/homeIcon.png"/>
+        <img src="assets/img-shop/homeIcon.png"/>
         <p>首页</p>
     </div>
     <div class="">
         <!--<img src="img/fenleiActive_03.png"/>-->
-        <img src="img/fenlei_03.png"/>
+        <img src="assets/img-shop/fenlei_03.png"/>
         <p>分类</p>
     </div>
     <div class="hp_footer_active">
-        <img src="img/gwcActive_03.png"/>
+        <img src="assets/img-shop/gwcActive_03.png"/>
         <!--<img src="img/gwc_03.png"/>-->
         <p>购物车</p>
     </div>
     <div>
         <!--<img src="img/wodeActive_03.png"/>-->
-        <img src="img/wode_03.png"/>
+        <img src="assets/img-shop/wode_03.png"/>
         <p>我的</p>
     </div>
 </div>
@@ -301,7 +311,7 @@
 
 
 
-<script src="../comstyle/jquery-1.11.3.js"></script>
+<script src="../js/jquery-1.11.3.js"></script>
 <script>
     (function () {
         var pg_gwc={
@@ -322,11 +332,11 @@
                     var str=$(this).find('img').attr('src');
                     var istrue=new RegExp('gouxz_03').test(str);
                     if(new RegExp('gouxz_03').test(str)){
-                        $(this).find('img').attr('src','img/gouhs_03.png');
+                        $(this).find('img').attr('src','assets/img-shop/gouhs_03.png');
                     }else if(new RegExp('gouhs_03').test(str)){
-                        $(this).find('img').attr('src','img/gouxz_03.png');
+                        $(this).find('img').attr('src','assets/img-shop/gouxz_03.png');
                     }
-                    $('.shopping_footerBox_left').find('img').attr('src','img/gouxz_03.png');
+                    $('.shopping_footerBox_left').find('img').attr('src','assets/img-shop/gouxz_03.png');
                 })
             },
             shopping_footerBox_left:function () {
@@ -334,9 +344,9 @@
                     var str=$(this).find('img').attr('src');
                     var istrue=new RegExp('gouxz_03').test(str);
                     if(new RegExp('gouxz_03').test(str)){
-                        $(this).find('img').attr('src','img/gouhs_03.png');
+                        $(this).find('img').attr('src','assets/img-shop/gouhs_03.png');
                     }else if(new RegExp('gouhs_03').test(str)){
-                        $(this).find('img').attr('src','img/gouxz_03.png');
+                        $(this).find('img').attr('src','assets/img-shop/gouxz_03.png');
                     }
                     var src=$(this).find('img').attr('src');
                     $('.gwc_box_check').find('img').attr('src',src)
@@ -363,30 +373,30 @@
             footDiv:function () {
                 $('.hp_footer').on('touchend','div',function () {
                     $(this).addClass('hp_footer_active').siblings('.hp_footer_active').removeClass('hp_footer_active');
-                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','img/homeIcon.png');
-                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','img/fenlei_03.png');
-                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','img/gwc_03.png');
-                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','img/wode_03.png');
+                    $('.hp_footer>div:nth-child(1)').children('img').attr('src','assets/img-shop/homeIcon.png');
+                    $('.hp_footer>div:nth-child(2)').children('img').attr('src','assets/img-shop/fenlei_03.png');
+                    $('.hp_footer>div:nth-child(3)').children('img').attr('src','assets/img-shop/gwc_03.png');
+                    $('.hp_footer>div:nth-child(4)').children('img').attr('src','assets/img-shop/wode_03.png');
                     //首页
                     if($(this).children('p').text()=="首页"){
-                        $(this).children('img').attr('src','img/homeActive.png');
+                        $(this).children('img').attr('src','assets/img-shop/homeActive.png');
 //                        $('.village').load("首页/homePage.html");
-                        window.location.href="../首页/homePage.html"
+                        window.location.href="/home/toHomejsp"
                     }
                     //分类
                     if($(this).children('p').text()=="分类"){
-                        $(this).children('img').attr('src','img/fenleiActive_03.png');
-                        window.location.href="../分类/classification.html"
+                        $(this).children('img').attr('src','assets/img-shop/fenleiActive_03.png');
+                        window.location.href="/home/toClassificationjsp"
                     }
                     //购物车
                     if($(this).children('p').text()=="购物车"){
-                        $(this).children('img').attr('src','img/gwcActive_03.png');
+                        $(this).children('img').attr('src','assets/img-shop/gwcActive_03.png');
 //                        window.location.href="../购物车/shoppingCart.html"
                     }
                     //我的
                     if($(this).children('p').text()=="我的"){
-                        $(this).children('img').attr('src','img/wodeActive_03.png');
-                        window.location.href="../我的/mineSetting.html"
+                        $(this).children('img').attr('src','assets/img-shop/wodeActive_03.png');
+                        window.location.href="/home/toMineSettingjsp"
                     }
                 })
 

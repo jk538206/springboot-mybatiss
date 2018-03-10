@@ -14,6 +14,12 @@ public interface CustomerDao {
      */
     Customer findByName(@Param("loginName") String loginName);
     
-    public void addCustomer(Customer customer);
+    int saveCustomer(Customer customer);
+
+	Customer findByNikeName(String nikeName);
+	
+	int updateByPhone(Customer customer);
+	
+	int deleteByPhone(Customer customer);
     
 }

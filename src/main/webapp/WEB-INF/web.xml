@@ -76,10 +76,14 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet-mapping>
+	 <servlet-mapping>
 		<servlet-name>springMvc</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
+	<!-- <servlet-mapping>
+        <servlet-name>springMVC</servlet-name>
+        <url-pattern>/springMVC/</url-pattern>
+    </servlet-mapping> -->
 	
 	<!-- tomcat等 启动之前执行 -->
 	<filter>

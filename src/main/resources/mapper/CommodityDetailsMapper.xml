@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.CommodityDetailsDao">
+
+	<select id="queryCommodityDetailsbyId" resultType="org.spring.springboot.Vo.CommodityDetails" parameterType="org.spring.springboot.Vo.CommodityDetails">
+		select 
+		m wx_item  i join wx_item_detail d on i.item_id = d.item_id 
+		where i.item_id= #{itemId}
+	</select>
+
+
+<select id="getHotSalesList" resultType="org.spring.springboot.Vo.HotSale" parameterType="org.spring.springboot.Vo.HotSale">
+	select
+		i.item_id	as id			,           
+		d.images	 	as imgUrl        ,
+		i.full_name	as fullName      ,
+		i.weight 	as  weight       ,
+		d.retail 	as retail        ,
+		c.promotion_total		as promotionPrice,
+		i.sales_volume			as salesVolume   ,
+		i.description		as description   ,
+		d.service_type		as serviceType   ,
+		d.place	as place         ,
+		i.shelf_life	as shelfLife     ,
+		i.brand		as brand   
+	from wx_item  i 
+	join wx_item_detail d on i.item_id = d.item_id 
+	left join wx_promotion c on c.promotion_id = d.promotion_id
+	where i.item_id = #{id}
+	</select>
+	
+			
+					
+
+	<!-- <select id="getHotSalesList" resultType="org.spring.springboot.Vo.HotSale" parameterType="org.spring.springboot.Vo.HotSale">
+		select  i.item_id as hotSaleId,
+		i.short_name as saleName,
+		i.sales_volume as salesVolume,  
+		d.retail as price,
+		d.images as imgUrl ,
+		i.item_type  as itemType 
+		from wx_item  i join wx_item_detail d on i.item_id = d.item_id 
+		where i.item_id = #{id}
+	</select> -->
+</mapper>

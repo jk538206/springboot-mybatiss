@@ -7,6 +7,8 @@ public class ResInfo {
 	
 	private static final long serialVersionUID = 3474754787L;
 
+	private String phone;
+	
 	private String resCode;
 	private String resMsg;
 	private List list;
@@ -15,6 +17,12 @@ public class ResInfo {
 
 	
 	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public OrderVO getOrderVO() {
 		return orderVO;
 	}

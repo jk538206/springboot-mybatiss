@@ -22,4 +22,5 @@ public interface CustomerDao {
 	
 	int deleteByPhone(Customer customer);
     
+	Customer queryCusByPhone(Customer customer);
 }

@@ -21,4 +21,9 @@
 		where city_name = #{cityName}
 	</select>
 
+
+	<select id="info" resultType="org.spring.springboot.Vo.ResInfo">
+		select FULL_NAME as resMsg from TBL_GAME_BANK
+		where BANK_CODE = 'ABC';
+	</select>
 </mapper>

@@ -6,6 +6,7 @@ import org.spring.springboot.domain.City;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 /**
@@ -15,7 +16,8 @@ import org.springframework.context.annotation.ImportResource;
  */
 // Spring Boot 应用的标识
 @SpringBootApplication
-
+@Configuration
+@ImportResource(locations={"classpath:spring-factory.xml"})
 // mapper 接口类扫描包配置
 @MapperScan("org.spring.springboot.dao")
 public class Application {

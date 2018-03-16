@@ -3,10 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean name="/remoteService"
+		class="org.springframework.remoting.caucho.HessianServiceExporter">	
+		<property name="service" ref="remoteService" />
+		<property name="serviceInterface">
+			<value>org.spring.springboot.hessian.inter.RemoteService</value>
+		</property>
+	</bean>
+
 	<bean id="invokeFactory" class="org.spring.springboot.hessian.inter.InvokeFactory" >
 		<property name="invokeMap">
 			<map>
-				
 				<entry key="testFactory">
 					<ref bean="testFactoryInvoke"></ref>
 				</entry>

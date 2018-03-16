@@ -1,6 +1,7 @@
 package org.spring.springboot.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.spring.springboot.Vo.ResInfo;
 import org.spring.springboot.domain.City;
 
 /**
@@ -16,4 +17,7 @@ public interface CityDao {
      * @param cityName 城市名
      */
     City findByName(@Param("cityName") String cityName);
+    
+    
+    ResInfo info();
 }

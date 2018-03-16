@@ -3,27 +3,26 @@ package org.spring.springboot.domain;
 /**
  * 
  * 客户表
- * +-------------+--------------+------+-----+---------+-------+
-| Field       | Type         | Null | Key | Default | Extra |
-+-------------+--------------+------+-----+---------+-------+
-| user_id     | varchar(100) | NO   | PRI | NULL    |       |
-| open_id     | varchar(100) | YES  |     | NULL    |       |
-| login_name  | varchar(100) | YES  |     | NULL    |       |
-| login_pwd   | varchar(100) | YES  |     | NULL    |       |
-| nike_name   | varchar(100) | YES  |     | NULL    |       |
-| area        | varchar(50)  | YES  |     | NULL    |       |
-| age         | varchar(5)   | YES  |     | NULL    |       |
-| phone       | varchar(20)  | YES  |     | NULL    |       |
-| email       | varchar(100) | YES  |     | NULL    |       |
-| profession  | varchar(50)  | YES  |     | NULL    |       |
-| regtime     | varchar(20)  | YES  |     | NULL    |       |
-| remarks     | varchar(800) | YES  |     | NULL    |       |
-| status      | varchar(5)   | YES  |     | NULL    |       |
-| create_date | varchar(100) | YES  |     | NULL    |       |
-| create_time | varchar(100) | YES  |     | NULL    |       |
-| update_date | varchar(100) | YES  |     | NULL    |       |    
-| update_time | varchar(100) | YES  |     | NULL    |       |
-+-------------+--------------+------+-----+---------+-------+
+ CREATE TABLE `wx_constomer` (
+  `user_id` varchar(100) NOT NULL COMMENT '用户ID，系统内唯一ID',
+  `open_id` varchar(100) DEFAULT NULL COMMENT '微信openid',
+  `login_name` varchar(100) DEFAULT NULL COMMENT '用户登录账号',
+  `login_pwd` varchar(100) DEFAULT NULL COMMENT '用户登录密码',
+  `nike_name` varchar(100) DEFAULT NULL COMMENT '用户昵称',
+  `area` varchar(50) DEFAULT NULL COMMENT '用户所在地区',
+  `age` varchar(5) DEFAULT NULL COMMENT '用户年龄',
+  `phone` varchar(20) DEFAULT NULL COMMENT '用户手机号（登录可用）',
+  `email` varchar(100) DEFAULT NULL COMMENT '用户邮箱（登录可用）',
+  `profession` varchar(50) DEFAULT NULL COMMENT '用户职业',
+  `regtime` varchar(20) DEFAULT NULL COMMENT '用户注册日期',
+  `remarks` varchar(800) DEFAULT NULL COMMENT '用户个人说明',
+  `status` varchar(5) DEFAULT NULL COMMENT '用户状态',
+  `create_date` varchar(100) DEFAULT NULL COMMENT '创建日期',
+  `create_time` varchar(100) DEFAULT NULL COMMENT '创建时间',
+  `update_date` varchar(100) DEFAULT NULL COMMENT '更新日期',
+  `update_time` varchar(100) DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  */
 public class Customer {
 

@@ -7,5 +7,6 @@ import org.spring.springboot.Vo.HotSale;
 public interface HotSaleDao {
 
 	List<HotSale> getHotSalesList(HotSale hotSale);
-
+	
+	
 }

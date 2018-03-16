@@ -3,6 +3,8 @@ package org.spring.springboot.service.impl;
 
 import org.slf4j.Logger;
 
+
+
 import org.slf4j.LoggerFactory;
 import org.spring.springboot.Vo.ResInfo;
 import org.spring.springboot.dao.CustomerDao;
@@ -41,7 +43,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	
 	@Override
-	public ResInfo addCustomer(Customer customer) {
+	public  ResInfo addCustomer(Customer customer) {
 		logger.info("-addCustomer-start-customer is "+customer.toString());
 		ResInfo resInfo = new ResInfo();
 		ResInfo resInfoRes = findByNikeNameGetResInfo(customer);//"00" 查询此条数据成功
@@ -79,9 +81,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public ResInfo findByNikeNameGetResInfo(Customer customer) {
+	public  ResInfo findByNikeNameGetResInfo(Customer customer) {
 		logger.info("-CustomerServiceImpl-findByNikeName-start-customer.nikeName is "+customer.getNikeName());
-		ResInfo resInfo = new ResInfo();
+		ResInfo resInfo = new  ResInfo();
 		if(customer.getNikeName()!=null) {
 			Customer customerRes =	customerDao.findByNikeName(customer.getNikeName());
 			if(customerRes!=null&&customerRes.getUserId()!=null) {

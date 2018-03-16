@@ -67,10 +67,14 @@ public class HomeViewControll {
     }
     /**
      * 我的
+     * select 头像 userid  名字 订单状态下的 订单数量
      */
     @RequestMapping("/home/toMineSettingjsp")
     public String toMineSettingjsp(ModelMap model) {
         model.addAttribute("hello", "13212");
+        
+        //根据手机号 查询 用户所有信息 放到页面
+        
         return "shoppingCart/shoppingCart";
     }
    

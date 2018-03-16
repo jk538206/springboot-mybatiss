@@ -2,6 +2,8 @@ package org.spring.springboot.controller.home;
 
 import java.util.ArrayList;
 
+
+
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -35,7 +37,7 @@ public class HomeRestController {
     @RequestMapping(value = "/hot/hotSales", method = RequestMethod.GET)
     public ResInfo hotSale(@RequestParam(value = "itemType", required = true) String itemType) {
     	logger.info("-HomeRestController-/hot/hotSales-itemType: "+itemType);
-    	ResInfo resInfo  = new ResInfo();
+    	ResInfo resInfo  = new  ResInfo();
     	HotSale hotSale = new HotSale();
     	hotSale.setItemType(itemType);
     	//根据sailType 查询item 返回list

@@ -20,9 +20,16 @@ public class CreateTest {
 		
 	    @Test
 	    public void findByNikeNameGetResInfo() {
-	    	System.out.println("-CreateUUID : "+CreateUtil.CreateUUID());
-	    	System.out.println("-createDate : "+CreateUtil.createDate());
-	    	System.out.println("-createTime : "+CreateUtil.createTime());
+//	    	System.out.println("-CreateUUID : "+CreateUtil.CreateUUID());
+//	    	System.out.println("-createDate : "+CreateUtil.createDate());
+//	    	System.out.println("-createTime : "+CreateUtil.createTime());
+	    	
+	    	
+	    	int i = 1;
+	    	i++;
+	    	++i ;
+	    	System.out.println(i++);
+	    	System.out.println(i++);
 	    }
 	    
 	

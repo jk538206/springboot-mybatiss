@@ -19,10 +19,10 @@ public class CustomerRestController {
 	 /***
 	     * @param cityName
 	     * @return 
-	     * http://localhost:8080/cus/addCustomer?customerName=lhui
+	     * http://localhost:8004/cus/addCustomer?customerName=lhui
 	     */
 	    @RequestMapping(value = "/cus/addCustomer", method = RequestMethod.GET)
-	    public ResInfo addCustomer(@RequestParam(value = "customerName", required = true) String customerName) {
+	    public  ResInfo addCustomer(@RequestParam(value = "customerName", required = true) String customerName) {
 		    	Customer customer  = new Customer();
 		    	customer.setUserId(CreateUtil.CreateUUID());
 		    	customer.setAge("11");

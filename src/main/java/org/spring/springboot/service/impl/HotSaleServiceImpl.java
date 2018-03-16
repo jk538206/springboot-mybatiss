@@ -2,6 +2,8 @@ package org.spring.springboot.service.impl;
 
 import java.util.List;
 
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.springboot.Vo.HotSale;
@@ -21,9 +23,9 @@ public class HotSaleServiceImpl implements HotSaleService{
 	
 	
 	@Override
-	public ResInfo getHotSalesList(HotSale hotSale) {
+	public  ResInfo getHotSalesList(HotSale hotSale) {
 		logger.info("-HotSaleServiceImpl-getHotSalesList-start-hotSale.saleType: "+hotSale.getItemType());
-		ResInfo resInfo  = new ResInfo();
+		ResInfo resInfo  = new  ResInfo();
 		List<HotSale> list=hotSaleDao.getHotSalesList(hotSale);
 		resInfo.setResCode("00");
 		resInfo.setResMsg("查询成功");

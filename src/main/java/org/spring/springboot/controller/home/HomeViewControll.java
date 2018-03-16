@@ -75,6 +75,9 @@ public class HomeViewControll {
         
         //根据手机号 查询 用户所有信息 放到页面
         
+        //根据手机号查询 用户的各个type订单数量
+        
+        
         return "shoppingCart/shoppingCart";
     }
    

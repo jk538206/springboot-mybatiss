@@ -12,5 +12,7 @@ public interface OrderDao {
 	Integer createOrder(Order order);
 	
 	Integer deleteByPhone(Order order);//orderid
+	
+	Integer countBytype(Order order);
 }
  

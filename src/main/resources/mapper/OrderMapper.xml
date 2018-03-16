@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.spring.springboot.dao.OrderDao">
+
 <parameterMap id="order" type="org.spring.springboot.domain.Order"/>
+
 	<sql id="Base_Column_List">
 		order_id,user_id,item_id,order_num,pay_price,pay_num,promotion_total,pay_total,order_date,
 		order_status,receive_id,remarks,create_date,create_time,update_date,update_time
 	</sql>
 
+	<select id="countBytype"  parameterType="order">
+		SELECT 
+		COUNT(order_id) 
+		FROM 
+		wx_order
+		where order_status=#{type};
+	</select>
+	
 	<select id="findOrderS" resultType="order" parameterType="order">
 		select 
 		<include refid="Base_Column_List" />
@@ -113,39 +123,5 @@
 		</if>
 		</trim>
 	</insert>
-	
-	
-	<!-- <select id="getAccountHis" resultType="agentInfo" parameterType="agentInfo">
-		SELECT  ah.ID AS id,
-				(CASE WHEN ah.TYPE = 'INCOME' THEN '入账' WHEN ah.TYPE = 'OUTCOME' THEN '出账' ELSE '其他' END)  AS accountHisType,
-				(CASE WHEN ah.BIZTYPE = 'PURCHASE' THEN '充值' WHEN ah.BIZTYPE = 'EXCHANGE' THEN '提现' WHEN ah.BIZTYPE = 'SHAREPROFIT' THEN '分润' WHEN ah.BIZTYPE = 'SHAREDIVIDEND' THEN '分红' ELSE '其他' END) AS accountBizHisType, 
-				ah.TRXAMOUNT AS trxAmount,
-				ah.ACCOUNTBALANCE AS accountBalance,
-				ah.CORRELATION_ID AS correlationID,
-				DATE_FORMAT(ah.CREATE_TIME,'%Y-%m-%d %T') AS createTime 
-		FROM TBL_GAME_AGENT ag,TBL_GAME_ACCOUNT ac,TBL_GAME_ACCOUNTHISTORY ah  
-		WHERE ag.ID=ac.AGENT_ID AND ac.ID=ah.ACCOUNT_ID  
-		<if test="startTime != null and startTime != ''">
-			 <![CDATA[  AND ah.CREATE_TIME >= '${startTime}'  ]]> 
-		</if>
-		<if test="endTime != null and endTime != ''">
-			 <![CDATA[  AND ah.CREATE_TIME <= '${endTime}'  ]]> 
-		</if>
-			AND ag.PHONE=#{phone}  
-			ORDER BY ah.CREATE_TIME DESC 
-			LIMIT #{minRecordNum},#{pageSize}
-	</select>
-	<select id="getAccountHisSize" resultType="integer" parameterType="agentInfo">
-		SELECT 	COUNT(1) AS totalRecordNum  
-		FROM TBL_GAME_AGENT ag,TBL_GAME_ACCOUNT ac,TBL_GAME_ACCOUNTHISTORY ah 
-		WHERE ag.ID=ac.AGENT_ID AND ac.ID=ah.ACCOUNT_ID 
-		<if test="startTime != null and startTime != ''">
-			 <![CDATA[  AND ah.CREATE_TIME >= '${startTime}'  ]]> 
-		</if>
-		<if test="endTime != null and endTime != ''">
-			 <![CDATA[  AND ah.CREATE_TIME <= '${endTime}'  ]]> 
-		</if>
-			AND ag.PHONE=#{phone}  
-	</select> -->
 
 </mapper>

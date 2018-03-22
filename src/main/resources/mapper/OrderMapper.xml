@@ -113,7 +113,7 @@
 		#{createDate},
 		</if>
 		<if test="createTime != null and createTime != ''">
-		#{createTime},
+		#{createTime}, 
 		</if>
 		<if test="updateDate != null and updateDate != ''">
 		#{updateDate},

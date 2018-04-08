@@ -27,6 +27,7 @@ public class HotSaleServiceImpl implements HotSaleService{
 		logger.info("-HotSaleServiceImpl-getHotSalesList-start-hotSale.saleType: "+hotSale.getItemType());
 		ResInfo resInfo  = new  ResInfo();
 		List<HotSale> list=hotSaleDao.getHotSalesList(hotSale);
+		logger.info("--HotSaleServiceImpl-list.size(): "+list.size());
 		resInfo.setResCode("00");
 		resInfo.setResMsg("查询成功");
 		resInfo.setList(list);

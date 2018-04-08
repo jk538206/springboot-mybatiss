@@ -22,7 +22,7 @@ public class CreateTest {
 	    public void findByNikeNameGetResInfo() {
 //	    	System.out.println("-CreateUUID : "+CreateUtil.CreateUUID());
 //	    	System.out.println("-createDate : "+CreateUtil.createDate());
-//	    	System.out.println("-createTime : "+CreateUtil.createTime());
+	    	System.out.println("-createTime : "+CreateUtil.createTime());
 	    	
 	    	
 	    	int i = 1;

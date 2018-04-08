@@ -306,7 +306,7 @@
                     if($(this).children('p').text()=="首页"){
                         $(this).children('img').attr('src','assets/img-mine/homeActive.png');
 //                        $('.village').load("首页/homePage.html");
-                        window.location.href="/home/toHomejsp"
+                        window.location.href="/home/returnHome"
                     }
                     //分类
                     if($(this).children('p').text()=="分类"){

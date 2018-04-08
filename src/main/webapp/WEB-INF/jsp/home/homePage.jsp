@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <title>Title</title>
+    <title>有一村</title>
     <link rel="stylesheet" href="css/reset.css">
     <style>
         *{
@@ -231,7 +231,7 @@
                 <div class="classification_imgBox">
                     <img src="assets/img-home/333_03.png">
                 </div>
-                <p>蛋类</p>
+                <p>蛋奶</p>
             </div>
         </div>
         <!--新货热卖-->
@@ -329,7 +329,7 @@
                     isTrue:true,
 //                    icon:'.dLunbo_cont_icon',//提示图标
                 });
-                this.botNew()
+                this.botNew();
                 this.footDiv();
             },
             divBorderRadius:function (className) {
@@ -514,7 +514,7 @@
                     //分类
                     if($(this).children('p').text()=="分类"){
                         $(this).children('img').attr('src','assets/img-home/fenleiActive_03.png');
-                        window.location.href="/home/toClassificationjsp"
+                        window.location.href="/home/toClassificationjsp";
                     }
                     //购物车
                     if($(this).children('p').text()=="购物车"){
@@ -524,13 +524,28 @@
                     //我的
                     if($(this).children('p').text()=="我的"){
                         $(this).children('img').attr('src','assets/img-home/wodeActive_03.png');
-                        window.location.href="/home/toMineSettingjsp"
+                        window.location.href="/home/toMineSettingjsp?"
                     }
                 })
 
                 //点击热卖商品跳转到想对应的详情页面
                 $('.new_cargo_img_firsBox').on('click',function () {
                     window.location.href="../商品详情/commodityDetails.html"
+                })
+                //点击种类跳转到想对应的页面
+                $('.classification_imgBox').on('click',function () {
+                		if($(this).next('p').text()=="鲜肉"){
+                        window.location.href="/home/toClassificationjsp?type=XR"
+                    }
+                		if($(this).next('p').text()=="蔬菜"){
+                            window.location.href="/home/toClassificationjsp?type=SC"
+                        }
+                		if($(this).next('p').text()=="水果"){
+                            window.location.href="/home/toClassificationjsp?type=SG"
+                        }
+                		if($(this).next('p').text()=="蛋奶"){
+                            window.location.href="/home/toClassificationjsp?type=DN"
+                        }
                 })
             }
 

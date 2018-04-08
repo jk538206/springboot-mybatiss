@@ -2,6 +2,8 @@ package org.spring.springboot.Vo;
 
 import java.util.List;
 
+import org.spring.springboot.domain.Customer;
+
 
 public class ResInfo {
 	
@@ -9,14 +11,31 @@ public class ResInfo {
 
 	private String phone;
 	
+	private String type;
+	
 	private String resCode;
 	private String resMsg;
 	private List list;
 	private CommodityDetails commodityDetails;
 	private OrderVO orderVO;
 
+	private Customer customer;
 	
 	
+	
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	public String getPhone() {
 		return phone;
 	}
@@ -55,8 +74,9 @@ public class ResInfo {
 	}
 	@Override
 	public String toString() {
-		return "ResInfo [resCode=" + resCode + ", resMsg=" + resMsg + ", list=" + list + ", commodityDetails="
-				+ commodityDetails + ", orderVO=" + orderVO + "]";
+		return "ResInfo [phone=" + phone + ", type=" + type + ", resCode=" + resCode + ", resMsg=" + resMsg + ", list="
+				+ list + ", commodityDetails=" + commodityDetails + ", orderVO=" + orderVO + ", customer=" + customer
+				+ "]";
 	}
 	
 	

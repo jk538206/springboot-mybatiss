@@ -29,17 +29,5 @@
 	where i.item_id = #{id}
 	</select>
 	
-			
-					
-
-	<!-- <select id="getHotSalesList" resultType="org.spring.springboot.Vo.HotSale" parameterType="org.spring.springboot.Vo.HotSale">
-		select  i.item_id as hotSaleId,
-		i.short_name as saleName,
-		i.sales_volume as salesVolume,  
-		d.retail as price,
-		d.images as imgUrl ,
-		i.item_type  as itemType 
-		from wx_item  i join wx_item_detail d on i.item_id = d.item_id 
-		where i.item_id = #{id}
-	</select> -->
+	
 </mapper>

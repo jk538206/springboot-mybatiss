@@ -1,6 +1,7 @@
 package org.spring.springboot.Vo;
 
 //首页 新货热卖
+/**商品简介 大略*/
 public class HotSale {
 
 	//首页 新货热卖 货品id

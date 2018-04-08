@@ -5,4 +5,5 @@ encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/ISetUp/ISetUp.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/home/homePage.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/myOrder/myOrder.jsp=UTF-8
+encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

@@ -40,29 +40,7 @@ public class HomeRestController {
     	ResInfo resInfo  = new  ResInfo();
     	HotSale hotSale = new HotSale();
     	hotSale.setItemType(itemType);
-    	//根据sailType 查询item 返回list
-    	/***
-    	 * Test
-    	 */
-    	List<HotSale> list=new ArrayList<HotSale>();
-    	HotSale h1 = new HotSale();
-    	h1.setHotSaleId("001");
-    	h1.setImgUrl(Config.urlIp+"img-home/img_07.jpg");//http://192.168.1.51:8080/assets/img-home/img_07.jpg
-    	h1.setItemType("SG");
-    	h1.setPrice("21.00");
-    	h1.setSaleName("新鲜西柿");
-    	h1.setSalesVolume("22");
-    	list.add(h1);
-    	list.add(h1);
-    	list.add(h1);
-    	list.add(h1);
-    	list.add(h1);
-    	resInfo.setList(list);
-    	resInfo.setResCode("00");
-    	resInfo.setResMsg("查询成功");
-    	
-    	//TODO
-   // ResInfo resInfo  = hotSaleService.getHotSalesList(hotSale);
+    resInfo  = hotSaleService.getHotSalesList(hotSale);
     logger.info("--HomeRestController--/hot/hotSales-end-code: "+resInfo.getResCode()+" msg: "+resInfo.getResMsg());
     	return resInfo;
     }

@@ -27,6 +27,8 @@ public class CommodityDetails {
 	private String shelfLife;
 	//储藏方式 商品品牌替代
 	private String brand;
+	
+	
 	public String getImgUrl() {
 		return imgUrl;
 	}

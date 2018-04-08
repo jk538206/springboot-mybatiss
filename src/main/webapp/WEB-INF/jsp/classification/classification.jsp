@@ -109,6 +109,7 @@
 <body>
     <div class="ifClass_nav">
         有一村，新鲜配送
+        <input type="text" id="type" value="${type }">
     </div>
     <div class="ifClass_cont clear">
         <div>
@@ -121,66 +122,7 @@
             </ul>
         </div>
         <ul class="ifClass_cont_ul">
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="assets/img-class/zhurou_03.png"/>
-                    <p>猪肉介绍猪肉介绍</p>
-                </div>
-            </li>
+            
         </ul>
     </div>
 
@@ -232,11 +174,12 @@
         }
     });
     (function () {
-        $('.village').load("首页/homePage.html");
+        $('.village').load("/home/returnHome");
         var homePage={
             init:function () {
                 this.footDiv();
                 this.topLiClick("ifClass_top_active");
+                this.ajaxlh();
             },
             footDiv:function () {
                 $('.hp_footer').on('touchend','div',function () {
@@ -249,7 +192,7 @@
                     if($(this).children('p').text()=="首页"){
                         $(this).children('img').attr('src','assets/img-class/homeActive.png');
 //                        $('.village').load("首页/homePage.html");
-                        window.location.href="/home/toHomejsp"
+                        window.location.href="/home/returnHome"
                     }
                     //分类
                     if($(this).children('p').text()=="分类"){
@@ -281,6 +224,34 @@
                 })
 
             },
+            ajaxlh:function(){
+            		var type=$("#type").val();
+            		//var ul=$(".ifClass_cont_ul");
+            	    //var _this=this;
+            		$.ajax({ 
+            				url:"class/sales",
+            				type:"GET",
+            				data: {itemType:'SG',page:'1'},
+            				dataType:"json",
+            				async : true,
+            				success: function(data){	
+            				        	console.log(data); 
+            				        	console.log(data.list.length); 
+            					for(var i =0,len=data.list.length;i<len;i++){
+            						console.log(i);
+            			            var html='<li onclick="itemdetail('+data.list[i].hotSaleId+
+            			            		')">'+
+            		                '<div>'+
+            		                '<img src="'+data.list[i].imgUrl+'"/>'+
+           		                	'<p>'+data.list[i].saleName+'</p>'+
+            		               	' </div>'+
+            		            	'</li>';
+            					$(".ifClass_cont_ul").append(html);
+								}         
+            				}
+            			}); 
+            		
+            }
 
         }
         homePage.init();

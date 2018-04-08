@@ -235,8 +235,8 @@
             				dataType:"json",
             				async : true,
             				success: function(data){	
-            				        	console.log(data); 
-            				        	console.log(data.list.length); 
+            				        	//console.log(data); 
+            				        	//console.log(data.list.length); 
             					for(var i =0,len=data.list.length;i<len;i++){
             						console.log(i);
             			            var html='<li onclick="itemdetail('+data.list[i].hotSaleId+
@@ -251,12 +251,14 @@
             				}
             			}); 
             		
+            },
+            itemdetail:function (itemid) {
+            	alert("ok");
+            	//itemdetail(001)
             }
 
-        },
-        itemdetail:function(itemId){
-        	console.log(itemId); 
         }
+        
         homePage.init();
 
     })(jQuery)

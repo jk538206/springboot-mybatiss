@@ -253,6 +253,9 @@
             		
             }
 
+        },
+        itemdetail:function(itemId){
+        	console.log(itemId); 
         }
         homePage.init();
 

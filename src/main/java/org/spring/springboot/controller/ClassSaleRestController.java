@@ -27,12 +27,14 @@ public class ClassSaleRestController {
 	@RequestMapping(value = "/class/sales", method = RequestMethod.GET)
     public ResInfo hotSale(@RequestParam(value = "itemType", required = true) String itemType,
     		@RequestParam(value = "page", required = true) String page) {
-		int pageSize = 10;
+		//int pageSize = 2;
     	logger.info("-ClassSaleRestController-/hot/hotSales-itemType: "+itemType+" page: "+page);
-    	
     	ResInfo resInfo  = new  ResInfo();
     	HotSale hotSale = new HotSale();
     	hotSale.setItemType(itemType);
+    	//hotSale.setPageNo(Integer.parseInt(page));
+    	hotSale.setPageNo(2);
+    	hotSale.setPageSize(2);
     	/**根据sailType pages 查询item 返回list*/
     resInfo  = hotSaleService.getHotSalesList(hotSale);
     logger.info("--ClassSaleRestController--/hot/hotSales-end-code: "+resInfo.getResCode()+" msg: "+resInfo.getResMsg());

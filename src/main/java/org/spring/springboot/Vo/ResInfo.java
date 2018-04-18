@@ -5,7 +5,7 @@ import java.util.List;
 import org.spring.springboot.domain.Customer;
 
 
-public class ResInfo {
+public class ResInfo extends BaseVo{
 	
 	private static final long serialVersionUID = 3474754787L;
 
@@ -20,9 +20,6 @@ public class ResInfo {
 	private OrderVO orderVO;
 
 	private Customer customer;
-	
-	
-	
 	
 	public String getType() {
 		return type;

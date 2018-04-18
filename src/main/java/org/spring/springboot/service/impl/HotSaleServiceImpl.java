@@ -24,7 +24,7 @@ public class HotSaleServiceImpl implements HotSaleService{
 	
 	@Override
 	public  ResInfo getHotSalesList(HotSale hotSale) {
-		logger.info("-HotSaleServiceImpl-getHotSalesList-start-hotSale.saleType: "+hotSale.getItemType());
+		logger.info("-HotSaleServiceImpl-getHotSalesList-start-hotSale "+hotSale.toString());
 		ResInfo resInfo  = new  ResInfo();
 		List<HotSale> list=hotSaleDao.getHotSalesList(hotSale);
 		logger.info("--HotSaleServiceImpl-list.size(): "+list.size());

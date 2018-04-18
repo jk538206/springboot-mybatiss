@@ -225,7 +225,7 @@
 
             },
             ajaxlh:function(){
-            		var type=$("#type").val(),me=this;
+            		var type=$("#type").val();
             		//var ul=$(".ifClass_cont_ul");
             	    //var _this=this;
             		$.ajax({ 
@@ -239,7 +239,8 @@
             				        	//console.log(data.list.length); 
             					for(var i =0,len=data.list.length;i<len;i++){
             						console.log(i);
-            			            var html='<li codeId="'+data.list[i].hotSaleId+'">'+
+            			            var html='<li onclick="itemdetail('+data.list[i].hotSaleId+
+            			            		')">'+
             		                '<div>'+
             		                '<img src="'+data.list[i].imgUrl+'"/>'+
            		                	'<p>'+data.list[i].saleName+'</p>'+
@@ -251,16 +252,7 @@
             			}); 
             		
             },
-    liId:null,
-            liLIstClass:function(){
-                var me=this;
-                $(".ifClass_cont_ul").on('click','li',function(){
-                    var code=$(this).attr('codeId');
-                    me.itemdetail(code);
-                })
-            },
             itemdetail:function (itemid) {
-    console.log(itemid)
             	alert("ok");
             	//itemdetail(001)
             }

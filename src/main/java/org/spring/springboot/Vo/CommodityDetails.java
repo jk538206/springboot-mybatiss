@@ -1,6 +1,6 @@
 package org.spring.springboot.Vo;
 
-public class CommodityDetails {
+public class CommodityDetails extends BaseVo{
 
 	private String id;
 	//详情图片 

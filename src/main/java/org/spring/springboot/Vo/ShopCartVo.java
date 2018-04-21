@@ -9,4 +9,6 @@ public class ShopCartVo {
 	/**商品数量*/
 	private String itemNum;
 	
+	
+	
 }

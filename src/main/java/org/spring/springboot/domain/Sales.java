@@ -1,6 +1,8 @@
 package org.spring.springboot.domain;
 
-public class Sales {
+import org.spring.springboot.Vo.BaseVo;
+
+public class Sales extends BaseVo{
 
 	private static final long serialVersionUID = 3474754787L;
 	/**

@@ -7,7 +7,7 @@
 insert_date,insert_time,update_date,update_time) 
 values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计价格','备注') -->
 	<insert id="createSales" parameterType="org.spring.springboot.domain.Sales">
-	INSERT INTO wx_sales
+	INSERT INTO wx_sales   
 		<trim prefix="(" suffix=")" suffixOverrides="," >
 		sales_id,
 		<if test="userId != null and userId != ''">

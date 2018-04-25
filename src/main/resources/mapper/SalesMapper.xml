@@ -6,7 +6,7 @@
 <!-- insert into wx_sales(sales_id,user_id,item_id,buy_num,buy_price,cost_total,remarks,
 insert_date,insert_time,update_date,update_time) 
 values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计价格','备注') -->
-	<insert id="createSales" parameterType="org.spring.springboot.domain.Sales">
+	<insert id="createSales"  parameterType="org.spring.springboot.domain.Sales">
 	INSERT INTO wx_sales   
 		<trim prefix="(" suffix=")" suffixOverrides="," >
 		sales_id,
@@ -28,11 +28,11 @@ values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计
 		<if test="remarks != null and remarks != ''">
 		remarks,
 		</if>
-		<if test="createDate != null and createDate != ''">
-		create_date, 
+		<if test="insertDate != null and insertDate != ''">
+		insert_date, 
 		</if>
-		<if test="createTime != null and createTime != ''">
-		create_time, 
+		<if test="insertTime != null and insertTime != ''">
+		insert_time, 
 		</if>
 		<if test="updateDate != null and updateDate != ''">
 		update_date, 
@@ -61,11 +61,11 @@ values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计
 		<if test="remarks != null and remarks != ''">
 		#{remarks},
 		</if>
-		<if test="createDate != null and createDate != ''">
-		#{createDate},
+		<if test="insertDate != null and insertDate != ''">
+		#{insertDate},
 		</if>
-		<if test="createTime != null and createTime != ''">
-		#{createTime},
+		<if test="insertTime != null and insertTime != ''">
+		#{insertTime},
 		</if>
 		<if test="updateDate != null and updateDate != ''">
 		#{updateDate},
@@ -79,7 +79,7 @@ values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计
 	<!-- update wx_sales set item_id='',buy_num='',buy_price='',cost_total='',
 	remarks='' where salesid='' and user_id=''; -->
 	
-	<update id="updateById" parameterType="org.spring.springboot.domain.Sales" >
+	<!-- <update id="updateById" parameterType="org.spring.springboot.domain.Sales" >
 	UPDATE wx_sales 
 	<trim prefix="(" suffix=")" suffixOverrides="," >
 		sales_id,
@@ -101,11 +101,11 @@ values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计
 		<if test="remarks != null and remarks != ''">
 		remarks,
 		</if>
-		<if test="createDate != null and createDate != ''">
-		create_date, 
+		<if test="insertDate != null and insertDate != ''">
+		insert_date, 
 		</if>
-		<if test="createTime != null and createTime != ''">
-		create_time, 
+		<if test="insertTime != null and insertTime != ''">
+		insert_time, 
 		</if>
 		<if test="updateDate != null and updateDate != ''">
 		update_date, 
@@ -115,9 +115,9 @@ values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计
 		</if>
 		</trim>
 		WHERE  sales_id=#{salesId} and user_id = #{userId};
-	</update>
+	</update> -->
 	
-	<select id="findSales" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<select id="findSales" resultType="org.spring.springboot.domain.Sales" parameterType="org.spring.springboot.domain.Sales">
 		select sales_id ,
 		item_id , 
 		user_id,
@@ -129,12 +129,23 @@ values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计
 		insert_time,
 		update_date,
 		update_time
-		 from wx_sales where sales_id=#{salesId} and user_id=#{userId};
+		 from wx_sales where  user_id=#{userId}
+		 <if test="salesId != null and salesId != ''">
+		and sales_id=#{salesId}
+		</if>
+		LIMIT #{minRecordNum},#{pageSize}
+		
 	</select>
 	
-	<delete id="deleteBySalesId" parameterType="org.spring.springboot.domain.Sales">
-		DELETE FROM wx_sales WHERE sales_id = #{salesId}
-	</delete>
+	 <delete id="deleteByUserId" parameterType="org.spring.springboot.domain.Sales">
+		DELETE FROM wx_sales WHERE 
+		user_id=#{userId}
+		
+	</delete>  
+	<delete id="deleteByItemId" parameterType="org.spring.springboot.domain.Sales">
+		DELETE FROM wx_sales WHERE 
+		 item_id=#{itemId} ;
+	</delete>  
 	
 	
 <!-- delete from wx_sales where sales_id='' and user_id=	 -->

@@ -1,8 +1,8 @@
 package org.spring.springboot.Vo;
 
 import java.util.List;
-
 import org.spring.springboot.domain.Customer;
+import org.spring.springboot.domain.Sales;
 
 
 public class ResInfo extends BaseVo{
@@ -21,6 +21,16 @@ public class ResInfo extends BaseVo{
 
 	private Customer customer;
 	
+	private Sales sales;
+	
+	
+	
+	public Sales getSales() {
+		return sales;
+	}
+	public void setSales(Sales sales) {
+		this.sales = sales;
+	}
 	public String getType() {
 		return type;
 	}
@@ -73,8 +83,9 @@ public class ResInfo extends BaseVo{
 	public String toString() {
 		return "ResInfo [phone=" + phone + ", type=" + type + ", resCode=" + resCode + ", resMsg=" + resMsg + ", list="
 				+ list + ", commodityDetails=" + commodityDetails + ", orderVO=" + orderVO + ", customer=" + customer
-				+ "]";
+				+ ", sales=" + sales + "]";
 	}
+	
 	
 	
 	

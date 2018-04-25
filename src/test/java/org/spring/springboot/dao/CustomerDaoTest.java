@@ -19,7 +19,7 @@ public class CustomerDaoTest {
 		Customer customer = new Customer();
 		customer.setPhone("15901513353");
 		Customer customer2 =  customerDao.queryCusByPhone(customer);
-		System.out.println("-------"+customer2.toString());
+		//System.out.println("-------"+customer2.toString());
 		
 	}
 	

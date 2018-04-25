@@ -31,9 +31,19 @@ public class Sales extends BaseVo{
 	private String buyPrice;
 	private String costTotal;
 	private String remarks;
+	
 	private String insertDate;
 	private String insertTime;
 	private String updateDate;
+	private String updateTime;
+	
+	
+	public String getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
+	}
 	public String getSalesId() {
 		return salesId;
 	}

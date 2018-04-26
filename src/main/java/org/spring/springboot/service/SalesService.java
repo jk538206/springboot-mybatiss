@@ -7,4 +7,6 @@ import org.spring.springboot.domain.Sales;
 public interface SalesService {
 
 	List<Sales> findSalesbyUserId(Sales sales);
+	
+	Integer updateSales(Sales sales);
 }

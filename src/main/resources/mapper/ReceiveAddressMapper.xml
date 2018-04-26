@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.ReceiveAddressDao">
+	<resultMap id="BaseResultMap" type="org.spring.springboot.domain.Receive">
+		<result column="user_id" property="userId" />
+		<result column="receive_id" property="receiveId" />
+		<result column="user_name" property="userName" />
+		<result column="postal_code " property="postalCode" />
+		<result column="province_name" property="provinceName" />
+		<result column="city_name" property="cityName" />
+		<result column="country_name" property="countryName" />
+		<result column="detail_info" property="detailInfo" />
+		<result column="national_code" property="nationalCode" />
+		<result column="tel_number" property="telNumber" />
+		<result column="create_date" property="createDate" />
+		<result column="create_time" property="createTime" />
+		<result column="update_date" property="updateDate" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+
+	<parameterMap id="receive" type="org.spring.springboot.domain.Receive"/>
+
+	
+	<select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from wx_receive
+		where user_id = #{userId}  
+		limit user_id = #{userId} 
+		
+	</select>
+		<!-- where user_id = #{userId}  -->
+	
+	<delete id="deleteByReceiveId" parameterType="string">
+		DELETE FROM wx_receive WHERE receive_id = #{receiveId} 
+	</delete>
+	
+	<sql id="Base_Column_List">
+		receive_id,user_id, user_name,postal_code, province_name, city_name, country_name, detail_info, national_code, tel_number, 
+		create_date, create_time, update_date, update_time
+	</sql>
+	
+	<insert id="saveReceiveAddress" parameterType="receive">
+	INSERT INTO wx_receive 
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+		
+		receive_id,
+		<if test="userId != null" >
+			user_id,
+		</if>
+		<if test='userName != null and userName != ""'>
+			user_name,
+		</if>
+		<if test='postalCode != null and postalCode != ""'>
+			postal_code,
+		</if>
+		<if test='provinceName != null and provinceName != ""'>
+			province_name,
+		</if>
+		<if test='cityName != null and cityName != ""'>
+			city_name,
+		</if>
+		<if test='countryName != null and countryName != ""'>
+			country_name,
+		</if>
+		<if test='detailInfo != null and detailInfo != ""'>
+			detail_info,
+		</if>
+		<if test='nationalCode != null and nationalCode != ""'>
+			national_code,
+		</if>
+		<if test='telNumber != null and telNumber != ""'>
+			tel_number,
+		</if>
+		<if test='createDate != null and createDate != ""'>
+			create_date,
+		</if>
+		<if test='createTime != null and createTime != ""'>
+			create_time,
+		</if>
+		<if test='updateDate != null and updateDate != ""'>
+			update_date,
+		</if>
+		<if test='updateTime != null and updateTime != ""'>
+			update_time,
+		</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			#{receiveId},
+			#{userId},
+		
+	
+		<if test='userName != null and userName != ""'>
+			#{userName},
+		</if>
+		<if test='postalCode != null and postalCode != ""'>
+			#{postalCode},
+		</if>
+		<if test='provinceName != null and provinceName != ""'>
+			#{provinceName},
+		</if>
+		<if test='cityName != null and cityName != ""'>
+			#{cityName},
+		</if>
+		<if test='countryName != null and countryName != ""'>
+			#{countryName},
+		</if>
+		<if test='detailInfo != null and detailInfo != ""'>
+			#{detailInfo},
+		</if>
+		<if test='nationalCode != null and nationalCode != ""'>
+			#{nationalCode},
+		</if>
+		<if test='telNumber != null and telNumber != ""'>
+			#{telNumber},
+		</if>
+		<if test='createDate != null and createDate != ""'>
+			#{createDate},
+		</if>
+		<if test='createTime != null and createTime != ""'>
+			#{createTime},
+		</if>
+		<if test='updateDate != null and updateDate != ""'>
+			#{updateDate},
+		</if>
+		<if test='updateTime != null and updateTime != ""'>
+			#{updateTime},
+		</if>
+		</trim>
+	</insert>
+	
+	<update id="updateByReceiveIdAndUserId" parameterType="receive" >
+	UPDATE wx_receive 
+	<trim prefix="set" suffixOverrides=",">
+		 <if test="userId != null" >
+		    user_id = #{userId},
+		 </if>
+		<if test='userName != null and userName != ""'>
+			user_name = #{userName},
+		</if>
+		<if test='postalCode != null and postalCode != ""'>
+			postal_code= #{postalCode},
+		</if>
+		<if test='provinceName != null and provinceName != ""'>
+			province_name= #{provinceName},
+		</if>
+		<if test='cityName != null and cityName != ""'>
+			city_name= #{cityName},
+		</if>
+		<if test='countryName != null and countryName != ""'>
+			country_name= #{countryName},
+		</if>
+		<if test='detailInfo != null and detailInfo != ""'>
+			detail_info= #{detailInfo},
+		</if>
+		<if test='nationalCode != null and nationalCode != ""'>
+			national_code= #{nationalCode},
+		</if>
+		<if test='telNumber != null and telNumber != ""'>
+			tel_number= #{telNumber},
+		</if>
+		  <if test="createDate != null" >
+		    create_date = #{createDate},
+		  </if>
+		  <if test="createTime != null" >
+		    create_time = #{createTime},
+		  </if>
+		  <if test="updateDate != null" >
+		    update_date = #{updateDate},
+		  </if>
+		  <if test="updateTime != null" >
+		    update_time = #{updateTime}
+		  </if>
+	</trim>		
+	WHERE receive_id = #{receiveId} and user_id = #{userId}
+	</update>
+	
+	
+
+</mapper>

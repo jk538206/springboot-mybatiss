@@ -19,4 +19,9 @@ public class SalesServiceImpl implements SalesService {
 		return salesDao.findSales(sales);
 	}
 
+	@Override
+	public Integer updateSales(Sales sales) {
+		return salesDao.updateSales(sales);
+	}
+
 }

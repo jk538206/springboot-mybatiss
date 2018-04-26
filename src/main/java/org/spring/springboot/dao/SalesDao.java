@@ -14,5 +14,6 @@ public interface SalesDao {
 	Integer deleteByUserId(Sales sales);
 	//删除一条商品记录
 	Integer deleteByItemId(Sales sales);
-	//减少商品数量
+	//修改
+	Integer updateSales(Sales sales);
 }

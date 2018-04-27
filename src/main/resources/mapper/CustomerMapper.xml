@@ -21,12 +21,13 @@
 	</resultMap>
 
 	<parameterMap id="customer" type="org.spring.springboot.domain.Customer"/>
-
 	<sql id="Base_Column_List">
-		user_id, open_id, login_name, login_pwd, nike_name, area, age, phone, email, 
+		user_id, open_id, login_name, login_pwd, nike_name, headimgurl , sex , area, age, phone, email, 
 		profession, remarks, status ,create_date, create_time, update_date, update_time
 	</sql>
 
+	
+	
 	<delete id="deleteByPhone" parameterType="customer">
 		DELETE FROM wx_constomer WHERE PHONE = #{phone}
 	</delete>
@@ -86,6 +87,61 @@
 	WHERE phone = #{phone}
 	</update>
 	
+	<update id="updateById" parameterType="customer" >
+	UPDATE wx_constomer 
+	<trim prefix="set" suffixOverrides=",">
+		 <if test="userId != null" >
+		    user_id = #{userId},
+		    </if>
+		  <if test="openId != null" >
+		    open_id = #{openId},
+		  </if>
+		  <if test="loginName != null" >
+		    login_name = #{loginName},
+		  </if>
+		  <if test="loginPwd != null" >
+		    login_pwd = #{loginPwd},
+		  </if>
+		  <if test="nikeName != null" >
+		    nike_name = #{nikeName},
+		  </if>
+		  <if test="area != null" >
+		    area = #{area},
+		  </if>
+		  <if test="age != null" >
+		    age = #{age},
+		  </if>
+		  <if test="email != null" >
+		    email = #{email},
+		  </if>
+		  <if test="profession != null" >
+		    profession = #{profession},
+		  </if>
+		  <if test="regtime != null" >
+		    regtime = #{regtime},
+		  </if>
+		  <if test="remarks != null" >
+		    remarks = #{remarks},
+		  </if>
+		  <if test="status != null" >
+		    status = #{status},
+		  </if>
+		  <if test="createDate != null" >
+		    create_date = #{createDate},
+		  </if>
+		  <if test="createTime != null" >
+		    create_time = #{createTime},
+		  </if>
+		  <if test="updateDate != null" >
+		    update_date = #{updateDate},
+		  </if>
+		  <if test="updateTime != null" >
+		   update_time = #{updateTime},
+		  </if>
+	</trim>		
+	WHERE  user_id = #{userId}
+	</update>
+	
 	<select id="findByNikeName" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
@@ -98,6 +154,15 @@
 		<include refid="Base_Column_List" />
 		from wx_constomer
 		where user_id = #{userId}
+	</select>
+	
+	
+	
+	<select id="queryCusByOpenid" parameterType="customer" resultType="customer">
+		select
+		<include refid="Base_Column_List" />
+		from wx_constomer
+		where open_id = #{openId}
 	</select>
 	
 	<select id="queryCusByPhone" parameterType="customer" resultType="customer">
@@ -119,6 +184,12 @@
 		</if>
 		<if test="loginPwd != null and loginPwd != ''">
 		login_pwd,
+		</if>
+		<if test="headimgurl != null and headimgurl != ''">
+		headimgurl,
+		</if>
+		<if test="sex != null and sex != ''">
+		sex,
 		</if>
 		<if test="nikeName != null and nikeName != ''">
 		nike_name,
@@ -167,6 +238,12 @@
 		</if>
 		<if test="loginPwd != null and loginPwd != ''">
 		#{loginPwd},
+		</if>
+		<if test="headimgurl != null and headimgurl != ''">
+		#{headimgurl},
+		</if>
+		<if test="sex != null and sex != ''">
+		#{sex},
 		</if>
 		<if test="nikeName != null and nikeName != ''">
 		#{nikeName},

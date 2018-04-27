@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.SalesDao">
+
+
+<!-- insert into wx_sales(sales_id,user_id,item_id,buy_num,buy_price,cost_total,remarks,
+insert_date,insert_time,update_date,update_time) 
+values('购物车ID','用户ID','商品ID','购买数量','购买单价','合计价格','备注') -->
+	<insert id="createSales"  parameterType="org.spring.springboot.domain.Sales">
+	INSERT INTO wx_sales   
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+		sales_id,
+		<if test="userId != null and userId != ''">
+		user_id,
+		</if>
+		<if test="itemId != null and itemId != ''">
+		item_id,
+		</if>
+		<if test="buyNum != null and buyNum != ''">
+		buy_num,
+		</if>
+		<if test="buyPrice != null and buyPrice != ''">
+		buy_price,
+		</if>
+		<if test="costTotal != null and costTotal != ''">
+		cost_total,
+		</if>
+		<if test="remarks != null and remarks != ''">
+		remarks,
+		</if>
+		<if test="insertDate != null and insertDate != ''">
+		insert_date, 
+		</if>
+		<if test="insertTime != null and insertTime != ''">
+		insert_time, 
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+		update_date, 
+		</if>
+		<if test="updateTime != null and updateTime != ''">
+		update_time
+		</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+		#{salesId},
+		<if test="userId != null and userId != ''">
+		#{userId},
+		</if>
+		<if test="itemId != null and itemId != ''">
+		#{itemId},
+		</if>
+		<if test="buyNum != null and buyNum != ''">
+		#{buyNum},
+		</if>
+		<if test="buyPrice != null and buyPrice != ''">
+		#{buyPrice},
+		</if>
+		<if test="costTotal != null and costTotal != ''">
+		#{costTotal},
+		</if>
+		<if test="remarks != null and remarks != ''">
+		#{remarks},
+		</if>
+		<if test="insertDate != null and insertDate != ''">
+		#{insertDate},
+		</if>
+		<if test="insertTime != null and insertTime != ''">
+		#{insertTime},
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+		#{updateDate},
+		</if>
+		<if test="updateTime != null and updateTime != ''">
+		#{updateTime},
+		</if>
+		</trim>
+	</insert>
+	
+	<!-- update wx_sales set item_id='',buy_num='',buy_price='',cost_total='',
+	remarks='' where salesid='' and user_id=''; -->
+	
+	<!-- <update id="updateById" parameterType="org.spring.springboot.domain.Sales" >
+	UPDATE wx_sales 
+	<trim prefix="(" suffix=")" suffixOverrides="," >
+		sales_id,
+		<if test="userId != null and userId != ''">
+		user_id,
+		</if>
+		<if test="itemId != null and itemId != ''">
+		item_id,
+		</if>
+		<if test="buyNum != null and buyNum != ''">
+		buy_num,
+		</if>
+		<if test="buyPrice != null and buyPrice != ''">
+		buy_price,
+		</if>
+		<if test="costTotal != null and costTotal != ''">
+		cost_total,
+		</if>
+		<if test="remarks != null and remarks != ''">
+		remarks,
+		</if>
+		<if test="insertDate != null and insertDate != ''">
+		insert_date, 
+		</if>
+		<if test="insertTime != null and insertTime != ''">
+		insert_time, 
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+		update_date, 
+		</if>
+		<if test="updateTime != null and updateTime != ''">
+		update_time
+		</if>
+		</trim>
+		WHERE  sales_id=#{salesId} and user_id = #{userId};
+	</update> -->
+	
+	<select id="findSales" resultType="org.spring.springboot.domain.Sales" parameterType="org.spring.springboot.domain.Sales">
+		select sales_id ,
+		item_id , 
+		user_id,
+		buy_num,
+		buy_price,
+		cost_total,
+		remarks,
+		insert_date,
+		insert_time,
+		update_date,
+		update_time
+		 from wx_sales where  user_id=#{userId}
+		 <if test="salesId != null and salesId != ''">
+		and sales_id=#{salesId}
+		</if>
+		LIMIT #{minRecordNum},#{pageSize}
+		
+	</select>
+	
+	 <delete id="deleteByUserId" parameterType="org.spring.springboot.domain.Sales">
+		DELETE FROM wx_sales WHERE 
+		user_id=#{userId}
+		
+	</delete>  
+	<delete id="deleteByItemId" parameterType="org.spring.springboot.domain.Sales">
+		DELETE FROM wx_sales WHERE 
+		 item_id=#{itemId} ;
+	</delete>  
+	
+	
+<!-- delete from wx_sales where sales_id='' and user_id=	 -->
+	
+	
+	
+	<!-- delete from wx_sales where sales_id='' and user_id='' and item_id=''; -->
+	
+	<!-- <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from city
+		where city_name = #{cityName}
+	</select>
+
+
+	<select id="info" resultType="org.spring.springboot.Vo.ResInfo">
+		select FULL_NAME as resMsg from TBL_GAME_BANK
+		where BANK_CODE = 'ABC';
+	</select> -->
+</mapper>

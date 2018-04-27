@@ -17,6 +17,9 @@ public interface CustomerService {
 	
 	ResInfo updateByPhone(Customer customer);
 	
+	ResInfo findByOpenidGetResInfo(Customer customer);
 	
-
+	
+	ResInfo updateById(Customer customer);
+	
 }

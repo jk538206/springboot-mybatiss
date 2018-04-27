@@ -1,6 +1,6 @@
 package org.spring.springboot.Vo;
 
-public class CommodityDetails {
+public class CommodityDetails extends BaseVo{
 
 	private String id;
 	//详情图片 
@@ -27,6 +27,8 @@ public class CommodityDetails {
 	private String shelfLife;
 	//储藏方式 商品品牌替代
 	private String brand;
+	
+	
 	public String getImgUrl() {
 		return imgUrl;
 	}

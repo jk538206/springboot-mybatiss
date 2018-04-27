@@ -1,321 +1,327 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <base href="<%=basePath%>">
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <style>
-        *{
-            font-size: 0.8rem;
-        }
-        body{
-            background: #f7f7ff;
-        }
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<title>有一村</title>
+<link rel="stylesheet" href="css/reset.css">
+<style>
+* {
+	font-size: 0.8rem;
+}
 
-        .hp_content{ 
-            width: 100%;
-            margin: 40px auto 45px;
-        }
+body {
+	background: #f7f7ff;
+}
 
-        /*分类*/
-        .classification{
-            width: 95%;
-            margin: 0 auto;
-            text-align: center;
-            background: #fff;
-            /*border: 1px solid red;*/
-        }
-        .classification>div{
-            width: 25%;
-            margin: 10px 0;
-            /*border: 1px solid red;*/
-            float: left;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            overflow: hidden;
-        }
-        .classification>div>p{
-            line-height: 26px;
-            color: #666;
-        }
-        .classification .classification_imgBox>img{
-            width: 100%;
-        }
-        .classification_imgBox{
-            width: 85%;
-            margin: 0 auto;
-        }
-        /*新货热卖*/
-        .new_cargo{
-            width: 100%;
-            /*border: 1px solid red;*/
-            background: #fff;
-        }
-        .new_cargo_head{
-            width: 95%;
-            margin: 10px auto;
-            line-height: 30px;
-            border-bottom: 1px solid #ddd;
-        }
-        .new_cargo_head span{
-            display: block;
-            font-size: 0.9rem;
-        }
-        .new_cargo_head span:nth-child(1){
-            float: left;
-            padding-left: 10px;
-            color: #666;
-        }
-        .new_cargo_head span:nth-child(2){
-            float: right;
-            padding-right: 10px;
-            color: #aaa;
-        }
-        .new_cargo_img_firsBox img{
-            display: block;
-            width: 80%;
-            margin: 10px auto 2px;
-        }
-        .new_cargo_img_firsBox{
-            width: 160px;
-            float: left;
-        }
-        .new_cargo_img_firsBox>p{
-            padding: 0 10px;
-            line-height: 28px;
-        }
-        .new_cargo_img_firsBox>div{
-            padding: 0 10px;
-            line-height: 28px;
-        }
-        .new_cargo_img_firsBox>div>div{
-            float: left;
-        }
-        .new_cargo_img_firsBox>div>div:nth-child(1){
-            width: 45%;
-            background: rgba(66,66,66,.1);
-            text-align: center;
-            border-radius: 10px;
-        }
-        .new_cargo_img_firsBox>div>div:nth-child(2){
-            width: 55%;
-            text-align: right;
-            padding-right: 10px;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            color: #aaa;
-        }
-        .new_cargo_img{
-            width: 100%;
-            overflow-x: auto;
-        }
-        .new_cargo_img_firsBox{
-            padding-bottom: 10px;
-            float: left;
-        }
+.hp_content {
+	width: 100%;
+	margin: 40px auto 45px;
+}
 
+/*分类*/
+.classification {
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+	background: #fff;
+	/*border: 1px solid red;*/
+}
 
+.classification>div {
+	width: 25%;
+	margin: 10px 0;
+	/*border: 1px solid red;*/
+	float: left;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	overflow: hidden;
+}
 
+.classification>div>p {
+	line-height: 26px;
+	color: #666;
+}
 
+.classification .classification_imgBox>img {
+	width: 100%;
+}
 
-        /*轮播*/
+.classification_imgBox {
+	width: 85%;
+	margin: 0 auto;
+}
+/*新货热卖*/
+.new_cargo {
+	width: 100%;
+	/*border: 1px solid red;*/
+	background: #fff;
+}
 
-        .dLunbo{
-            /*margin: 0px 0;*/
-            margin-bottom: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            height: 160px;
-            overflow: hidden;
-            position: relative;
-        }
-        .dLunbo_cont{
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 170px;
-            margin-top: 10px;
-        }
-        .dLunbo_cont>li{
-            height: 100%;
-            color: #fff;
-            font-weight: bold;
-            float: left;
-            overflow: hidden;
-        }
-        .dLunbo_cont>li img{
-            width: 100%;
-            height: 100%;
-        }
-        .dLunbo_cont_icon{
-            position: absolute;
-            width: 40%;
-            left: 30%;
-            bottom: 5px;
-        }
-        .dLunbo_cont_icon span{
-            display: block;
-            float: left;
-            height: 7px;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            background: rgba(255,255,255,.5);
-        }
-        .dLunbo_cont_icon span.span_active{
-            background: #70bfea;
-        }
+.new_cargo_head {
+	width: 95%;
+	margin: 10px auto;
+	line-height: 30px;
+	border-bottom: 1px solid #ddd;
+}
 
+.new_cargo_head span {
+	display: block;
+	font-size: 0.9rem;
+}
 
+.new_cargo_head span:nth-child(1) {
+	float: left;
+	padding-left: 10px;
+	color: #666;
+}
 
-    </style>
+.new_cargo_head span:nth-child(2) {
+	float: right;
+	padding-right: 10px;
+	color: #aaa;
+}
+
+.new_cargo_img_firsBox img {
+	display: block;
+	width: 80%;
+	margin: 10px auto 2px;
+}
+
+.new_cargo_img_firsBox {
+	width: 160px;
+	float: left;
+}
+
+.new_cargo_img_firsBox>p {
+	padding: 0 10px;
+	line-height: 28px;
+}
+
+.new_cargo_img_firsBox>div {
+	padding: 0 10px;
+	line-height: 28px;
+}
+
+.new_cargo_img_firsBox>div>div {
+	float: left;
+}
+
+.new_cargo_img_firsBox>div>div:nth-child(1) {
+	width: 45%;
+	background: rgba(66, 66, 66, .1);
+	text-align: center;
+	border-radius: 10px;
+}
+
+.new_cargo_img_firsBox>div>div:nth-child(2) {
+	width: 55%;
+	text-align: right;
+	padding-right: 10px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	color: #aaa;
+}
+
+.new_cargo_img {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.new_cargo_img_firsBox {
+	padding-bottom: 10px;
+	float: left;
+}
+
+/*轮播*/
+.dLunbo {
+	/*margin: 0px 0;*/
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	height: 160px;
+	overflow: hidden;
+	position: relative;
+}
+
+.dLunbo_cont {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 170px;
+	margin-top: 10px;
+}
+
+.dLunbo_cont>li {
+	height: 100%;
+	color: #fff;
+	font-weight: bold;
+	float: left;
+	overflow: hidden;
+}
+
+.dLunbo_cont>li img {
+	width: 100%;
+	height: 100%;
+}
+
+.dLunbo_cont_icon {
+	position: absolute;
+	width: 40%;
+	left: 30%;
+	bottom: 5px;
+}
+
+.dLunbo_cont_icon span {
+	display: block;
+	float: left;
+	height: 7px;
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: rgba(255, 255, 255, .5);
+}
+
+.dLunbo_cont_icon span.span_active {
+	background: #70bfea;
+}
+</style>
 </head>
 <body>
-<div class="hp_nav">
-    有一村
-</div>
-<div style="width:100%; transform:translate(0px,0px)" class="hp_content">
-    <div style="height:50px; line-height:50px; text-align:center; width:100%; position: absolute;top:-50px">
-        努力加载中...
-    </div>
-    <div style="background: #f7f7ff">
-        <!--单图轮播-->
-        <div class="lb_Box dLunbo">
-            <ul class="dLunbo_cont">
-                <li style="background-color: red"><img src="${titilImg1}"></li>
-                <li style="background-color: #00ff00"><img src="${titilImg2}"></li>
-                <li style="background-color: #4f8ab4"><img src="${titilImg3}"></li>
-                <li style="background-color: yellow"><img src="${titilImg4}"></li>
-                <li style="background-color: #678"><img src="${titilImg1}"></li>
-            </ul>
-            <!--图下面的提示点-->
-            <div class="dLunbo_cont_icon"></div>
-        </div>
-        <!--<div class="lb_Box">-->
+	<div class="hp_nav">有一村</div>
+	<div style="width: 100%; transform: translate(0px, 0px)"
+		class="hp_content">
+		<div
+			style="height: 50px; line-height: 50px; text-align: center; width: 100%; position: absolute; top: -50px">
+			努力加载中...</div>
+		<div style="background: #f7f7ff">
+			<!--单图轮播-->
+			<div class="lb_Box dLunbo">
+				<ul class="dLunbo_cont">
+					<li style="background-color: red"><img src="${titilImg1}"></li>
+					<li style="background-color: #00ff00"><img src="${titilImg2}"></li>
+					<li style="background-color: #4f8ab4"><img src="${titilImg3}"></li>
+					<li style="background-color: yellow"><img src="${titilImg4}"></li>
+					<li style="background-color: #678"><img src="${titilImg1}"></li>
+				</ul>
+				<!--图下面的提示点-->
+				<div class="dLunbo_cont_icon"></div>
+			</div>
+			<!--<div class="lb_Box">-->
 
-        <!--</div>-->
-        <!--分类-->
-        <div class="classification clear">
-            <div>
-                <div class="classification_imgBox">
-                    <img src="assets/img-home/a_03.jpg">
-                </div>
-                <p>鲜肉</p>
-            </div>
-            <div>
-                <div class="classification_imgBox">
-                    <img src="assets/img-home/111_03.png">
-                </div>
-                <p>蔬菜</p>
-            </div>
-            <div>
-                <div class="classification_imgBox">
-                    <img src="assets/img-home/222_06.png">
-                </div>
-                <p>水果</p>
-            </div>
-            <div>
-                <div class="classification_imgBox">
-                    <img src="assets/img-home/333_03.png">
-                </div>
-                <p>蛋类</p>
-            </div>
-        </div>
-        <!--新货热卖-->
-        <div class="new_cargo">
-            <div class="new_cargo_head clear">
-                <span>新货热卖</span>
-                <span>更多</span>
-            </div>
-            <div class="new_cargo_img">
-                <ul class="new_cargo_img_ul">
-                    <li class="new_cargo_img_firsBox clear">
-                        <img src="assets/img-home/img_07.jpg"/>
-                        <p>新鲜西红柿</p>
-                        <div>
-                            <div>￥20.00</div>
-                            <div>销量 155</div>
-                        </div>
-                    </li>
-                    <li class="new_cargo_img_firsBox clear">
-                        <img src="assets/img-home/img_07.jpg"/>
-                        <p>新鲜西红柿</p>
-                        <div>
-                            <div>￥20.00</div>
-                            <div>销量 155</div>
-                        </div>
-                    </li>
-                    <li class="new_cargo_img_firsBox clear">
-                        <img src="assets/img-home/img_07.jpg"/>
-                        <p>新鲜西红柿</p>
-                        <div>
-                            <div>￥20.00</div>
-                            <div>销量 155</div>
-                        </div>
-                    </li>
-                    <li class="new_cargo_img_firsBox clear">
-                        <img src="assets/img-home/img_07.jpg"/>
-                        <p>新鲜西红柿</p>
-                        <div>
-                            <div>￥20.00</div>
-                            <div>销量 155</div>
-                        </div>
-                    </li>
-                    <li class="new_cargo_img_firsBox clear">
-                        <img src="assets/img-home/img_07.jpg"/>
-                        <p>新鲜西红柿</p>
-                        <div>
-                            <div>￥20.00</div>
-                            <div>销量 155</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+			<!--</div>-->
+			<!--分类-->
+			<div class="classification clear">
+				<div>
+					<div class="classification_imgBox">
+						<img src="assets/img-home/a_03.jpg">
+					</div>
+					<p>鲜肉</p>
+				</div>
+				<div>
+					<div class="classification_imgBox">
+						<img src="assets/img-home/111_03.png">
+					</div>
+					<p>蔬菜</p>
+				</div>
+				<div>
+					<div class="classification_imgBox">
+						<img src="assets/img-home/222_06.png">
+					</div>
+					<p>水果</p>
+				</div>
+				<div>
+					<div class="classification_imgBox">
+						<img src="assets/img-home/333_03.png">
+					</div>
+					<p>蛋奶</p>
+				</div>
+			</div>
+			<!--新货热卖-->
+			<div class="new_cargo">
+				<div class="new_cargo_head clear">
+					<span>新货热卖</span> <span>更多</span>
+				</div>
+				<div class="new_cargo_img">
+					<ul class="new_cargo_img_ul">
+						<li class="new_cargo_img_firsBox clear"><img
+							src="assets/img-home/img_07.jpg" />
+							<p>新鲜西红柿</p>
+							<div>
+								<div>￥20.00</div>
+								<div>销量 155</div>
+							</div></li>
+						<li class="new_cargo_img_firsBox clear"><img
+							src="assets/img-home/img_07.jpg" />
+							<p>新鲜西红柿</p>
+							<div>
+								<div>￥20.00</div>
+								<div>销量 155</div>
+							</div></li>
+						<li class="new_cargo_img_firsBox clear"><img
+							src="assets/img-home/img_07.jpg" />
+							<p>新鲜西红柿</p>
+							<div>
+								<div>￥20.00</div>
+								<div>销量 155</div>
+							</div></li>
+						<li class="new_cargo_img_firsBox clear"><img
+							src="assets/img-home/img_07.jpg" />
+							<p>新鲜西红柿</p>
+							<div>
+								<div>￥20.00</div>
+								<div>销量 155</div>
+							</div></li>
+						<li class="new_cargo_img_firsBox clear"><img
+							src="assets/img-home/img_07.jpg" />
+							<p>新鲜西红柿</p>
+							<div>
+								<div>￥20.00</div>
+								<div>销量 155</div>
+							</div></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div class="hp_footer">
-    <div class="hp_footer_active">
-        <img src="assets/img-home/homeActive.png"/>
-        <!--<img src="img/homeIcon.png"/>-->
-        <p>首页</p>
-    </div>
-    <div>
-        <!--<img src="img/fenleiActive_03.png"/>-->
-        <img src="assets/img-home/fenlei_03.png"/>
-        <p>分类</p>
-    </div>
-    <div>
-        <!--<img src="img/gwcActive_03.png"/>-->
-        <img src="assets/img-home/gwc_03.png"/>
-        <p>购物车</p>
-    </div>
-    <div>
-        <!--<img src="img/wodeActive_03.png"/>-->
-        <img src="assets/img-home/wode_03.png"/>
-        <p>我的</p>
-    </div>
-</div>
-
-
-<!--<embed class="hp_footer" src="../footer/footer.html"></embed>-->
-
-<script src="js/jquery-1.11.3.js"></script>
-<script>
+	<div class="hp_footer">
+		<div class="hp_footer_active">
+			<img src="assets/img-home/homeActive.png" />
+			<!--<img src="img/homeIcon.png"/>-->
+			<p>首页</p>
+		</div>
+		<div>
+			<!--<img src="img/fenleiActive_03.png"/>-->
+			<img src="assets/img-home/fenlei_03.png" />
+			<p>分类</p>
+		</div>
+		<div>
+			<!--<img src="img/gwcActive_03.png"/>-->
+			<img src="assets/img-home/gwc_03.png" />
+			<p>购物车</p>
+		</div>
+		<div>
+			<!--<img src="img/wodeActive_03.png"/>-->
+			<img src="assets/img-home/wode_03.png" />
+			<p>我的</p>
+		</div>
+	</div>
+	<!--<embed class="hp_footer" src="../footer/footer.html"></embed>-->
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
     (function () {
         var homePage={
             init:function () {  //初始加载执行
@@ -329,7 +335,7 @@
                     isTrue:true,
 //                    icon:'.dLunbo_cont_icon',//提示图标
                 });
-                this.botNew()
+                this.botNew();
                 this.footDiv();
             },
             divBorderRadius:function (className) {
@@ -514,7 +520,7 @@
                     //分类
                     if($(this).children('p').text()=="分类"){
                         $(this).children('img').attr('src','assets/img-home/fenleiActive_03.png');
-                        window.location.href="/home/toClassificationjsp"
+                        window.location.href="/home/toClassificationjsp";
                     }
                     //购物车
                     if($(this).children('p').text()=="购物车"){
@@ -531,6 +537,21 @@
                 //点击热卖商品跳转到想对应的详情页面
                 $('.new_cargo_img_firsBox').on('click',function () {
                     window.location.href="../商品详情/commodityDetails.html"
+                })
+                //点击种类跳转到想对应的页面
+                $('.classification_imgBox').on('click',function () {
+                		if($(this).next('p').text()=="鲜肉"){
+                        window.location.href="/home/toClassificationjsp?type=XR"
+                    }
+                		if($(this).next('p').text()=="蔬菜"){
+                            window.location.href="/home/toClassificationjsp?type=SC"
+                        }
+                		if($(this).next('p').text()=="水果"){
+                            window.location.href="/home/toClassificationjsp?type=SG"
+                        }
+                		if($(this).next('p').text()=="蛋奶"){
+                            window.location.href="/home/toClassificationjsp?type=DN"
+                        }
                 })
             }
 

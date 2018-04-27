@@ -2,7 +2,7 @@ package org.spring.springboot.Vo;
 
 import java.util.List;
 
-public class OrderVO {
+public class OrderVO extends BaseVo{
 
 	//订单id
 	private String orderId;

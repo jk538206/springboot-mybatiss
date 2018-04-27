@@ -1,7 +1,8 @@
 package org.spring.springboot.Vo;
 
 //首页 新货热卖
-public class HotSale {
+/**商品简介 大略*/
+public class HotSale extends BaseVo{
 
 	//首页 新货热卖 货品id
 	private String hotSaleId;
@@ -55,8 +56,9 @@ public class HotSale {
 	}
 	@Override
 	public String toString() {
+		
 		return "HotSale [hotSaleId=" + hotSaleId + ", saleName=" + saleName + ", salesVolume=" + salesVolume
-				+ ", price=" + price + ", imgUrl=" + imgUrl + ", itemType=" + itemType + "]";
+				+ ", price=" + price + ", imgUrl=" + imgUrl + ", itemType=" + itemType +"minRecordNum: "+ super.getMinRecordNum()+ "pagesize"+ super.getPageSize()+"]";
 	}
 	
 	

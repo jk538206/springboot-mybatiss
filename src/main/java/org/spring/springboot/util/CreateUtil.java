@@ -18,9 +18,16 @@ public class CreateUtil {
 		return matter.format(dt);
 	}
 	public static String createTime() {
-		Calendar now = Calendar.getInstance();
-		String time;
-		time = ""+now.get(Calendar.HOUR_OF_DAY)+":"+now.get(Calendar.MINUTE)+":"+now.get(Calendar.SECOND);
+//		Calendar now = Calendar.getInstance();
+//		String time;
+//		time = ""+now.get(Calendar.HOUR_OF_DAY)+":"+now.get(Calendar.MINUTE)+":"+now.get(Calendar.SECOND);
+//		
+		
+		Date date=new Date();
+
+        //转换成时间格式24小时制
+		SimpleDateFormat sdf =new SimpleDateFormat("HH:mm:ss");//完整的时间
+		String time=sdf.format(date);
 		return time;
 	}
 	

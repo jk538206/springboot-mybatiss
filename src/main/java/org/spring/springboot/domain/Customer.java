@@ -38,6 +38,8 @@ public class Customer {
 	private String age ;
 	private String phone ;
 	private String email;
+	private String headimgurl;
+	private String sex;
 	/**职业*/
 	private String profession;
 	private String regtime;
@@ -49,6 +51,18 @@ public class Customer {
 	private String updateTime;
 
 	
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getHeadimgurl() {
+		return headimgurl;
+	}
+	public void setHeadimgurl(String headimgurl) {
+		this.headimgurl = headimgurl;
+	}
 	public String getRegtime() {
 		return regtime;
 	}
@@ -155,9 +169,9 @@ public class Customer {
 	public String toString() {
 		return "Customer [userId=" + userId + ", openId=" + openId + ", loginName=" + loginName + ", loginPwd="
 				+ loginPwd + ", nikeName=" + nikeName + ", area=" + area + ", age=" + age + ", phone=" + phone
-				+ ", email=" + email + ", profession=" + profession + ", regtime=" + regtime + ", remarks=" + remarks
-				+ ", status=" + status + ", createDate=" + createDate + ", createTime=" + createTime + ", updateDate="
-				+ updateDate + ", updateTime=" + updateTime + "]";
+				+ ", email=" + email + ", headimgurl=" + headimgurl + ", sex=" + sex + ", profession=" + profession
+				+ ", regtime=" + regtime + ", remarks=" + remarks + ", status=" + status + ", createDate=" + createDate
+				+ ", createTime=" + createTime + ", updateDate=" + updateDate + ", updateTime=" + updateTime + "]";
 	}
 	
 	

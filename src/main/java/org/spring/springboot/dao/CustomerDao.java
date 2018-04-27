@@ -19,8 +19,12 @@ public interface CustomerDao {
 	Customer findByNikeName(String nikeName);
 	
 	int updateByPhone(Customer customer);
+	int updateById(Customer customer);
+	
 	
 	int deleteByPhone(Customer customer);
     
 	Customer queryCusByPhone(Customer customer);
+	
+	Customer queryCusByOpenid(Customer customer);
 }
